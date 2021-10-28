@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\City;
 use App\Models\CityDeliveries;
 use App\Http\Requests\CreateCityDeliveryRequest;
 use App\Models\CityDelivery;
+use App\Models\Delivery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,44 +17,46 @@ class CityDeliveriesController extends Controller
 
         return view('admin.city_delivery.index', compact('city_deliveries'));
     }
-   /* public function create(){
-        return view('admin.categories.create');
-    }
-    public function store(CreateCategoryRequest $request){
-        $category = Category::create($request->all());
+     public function create(){
+         $cities= City::all();
+         $deliveries= Delivery::all();
+         return view('admin.city_delivery.create',compact('cities','deliveries'));
+           }
+       public function store(CreateCityDeliveryRequest $request){
+           $city_delivery = CityDelivery::create($request->all());
 
-        $category->save();
+           $city_delivery->save();
 
-        $this->_setFlashMessage($request, 'success', "Kategória $category->name bola úspešne pridaná.");
+          /* $this->_setFlashMessage($request, 'success', "Kategória $category->name bola úspešne pridaná."); */
 
-        return redirect()->route('categories.index');
-    }
+           return redirect()->route('admin_dashboard');
+       }
 
-    public function edit($id){
-        $category = Category::findOrFail($id);
-        return view('admin.categories.edit', compact('category'));
-    }
+    /*   public function edit($id){
+           $category = Category::findOrFail($id);
+           return view('admin.categories.edit', compact('category'));
+       }
 
-    public function update(CreateCategoryRequest $request, $id){
-        $category = Category::findOrFail($id);
+       public function update(CreateCategoryRequest $request, $id){
+           $category = Category::findOrFail($id);
 
-        $category->update($request->all());
+           $category->update($request->all());
 
-        $category->save();
+           $category->save();
 
-        $this->_setFlashMessage($request, 'success', "Kategória $category->name bola úspešne zmenená.");
+           $this->_setFlashMessage($request, 'success', "Kategória $category->name bola úspešne zmenená.");
 
-        return redirect()->route('categories.index');
-    }
+           return redirect()->route('categories.index');
+       }
 
-    public function delete(Request $request, $id)
-    {
-        $category = Category::findOrFail($id);
+       public function delete(Request $request, $id)
+       {
+           $category = Category::findOrFail($id);
 
-        $this->_setFlashMessage($request, 'success', "Kategória $category->name bola vymazaná.");
+           $this->_setFlashMessage($request, 'success', "Kategória $category->name bola vymazaná.");
 
-        $category->delete();
+           $category->delete();
 
-        return redirect()->route('categories.index');
-    } */
+           return redirect()->route('categories.index');
+       } */
 }
