@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarriersTable extends Migration
+class CreateCarrierServices extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateCarriersTable extends Migration
      */
     public function up()
     {
-        Schema::create('carriers', function (Blueprint $table) {
+        Schema::create('carrier_services', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->unsignedBigInteger('eshop_id');
+            $table->string('code', 255);
+            $table->unsignedBigInteger('carrier_id');
             $table->timestamps();
         });
 
-        Schema::table('carriers', function($table) {
-            $table->foreign('eshop_id')->references('id')->on('eshops');
+        Schema::table('carrier_services', function($table) {
+            $table->foreign('carrier_id')->references('id')->on('carriers');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateCarriersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carriers');
+        Schema::dropIfExists('carrier_services');
     }
 }

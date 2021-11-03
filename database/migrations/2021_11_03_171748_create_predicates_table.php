@@ -15,6 +15,8 @@ class CreatePredicatesTable extends Migration
     {
         Schema::create('predicates', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->string('class', 255);
             $table->timestamps();
         });
     }

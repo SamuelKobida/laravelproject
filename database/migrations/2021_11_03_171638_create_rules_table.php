@@ -15,7 +15,21 @@ class CreateRulesTable extends Migration
     {
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 255);
+            $table->string('value', 255);
+            $table->unsignedBigInteger('carrier_service_id');
+            $table->unsignedBigInteger('eshop_id');
+            $table->unsignedBigInteger('subject_id');
+            $table->unsignedBigInteger('predicate_id');
             $table->timestamps();
+        });
+
+
+        Schema::table('rules', function($table) {
+            $table->foreign('carrier_service_id')->references('id')->on('carriers_services');
+            $table->foreign('eshop_id')->references('id')->on('eshops');
+            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->foreign('predicate_id')->references('id')->on('predicates');
         });
     }
 
