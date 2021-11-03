@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeliveriesTable extends Migration
+class CreateCarriersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class CreateDeliveriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('deliveries', function (Blueprint $table) {
+        Schema::create('carriers', function (Blueprint $table) {
             $table->id();
-            $table->string('name',155)->nullable();
+            $table->string('name', 255);
+            $table->unsignedBigInteger('eshop_id');
             $table->timestamps();
+        });
+
+        Schema::table('carriers', function($table) {
+            $table->foreign('eshop_id')->references('id')->on('eshops');
         });
     }
 
@@ -27,6 +32,6 @@ class CreateDeliveriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deliveries');
+        Schema::dropIfExists('carriers');
     }
 }
