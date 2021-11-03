@@ -26,7 +26,7 @@ class CreateRulesTable extends Migration
 
 
         Schema::table('rules', function($table) {
-            $table->foreign('carrier_service_id')->references('id')->on('carriers_services');
+            $table->foreign('carrier_service_id')->references('id')->on('carrier_services');
             $table->foreign('eshop_id')->references('id')->on('eshops');
             $table->foreign('subject_id')->references('id')->on('subjects');
             $table->foreign('predicate_id')->references('id')->on('predicates');
