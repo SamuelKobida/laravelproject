@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EshopSeeder::class);
         $this->call(CarrierSeeder::class);
         $this->call(Carrier_serviceSeeder::class);
+        $this->call(PredicateSeeder::class);
+        $this->call(SubjectSeeder::class);
     }
 }
