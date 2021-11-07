@@ -12,4 +12,4 @@ class HowManyProducts extends Subject
 
     }
 }
-// bude sa ukladat pocet produktov a v isequal mesto
+
