@@ -21,12 +21,12 @@ Route::middleware(['auth', 'is_admin'])->namespace('Admin')->prefix('admin')->gr
 
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'])->name('admin_dashboard');
 
-    /* Route::get('/city_deliveries', [\App\Http\Controllers\Admin\CityDeliveriesController::class,'index'])->name('city_deliveries.index');
-     Route::get('/city_deliveries/create', [\App\Http\Controllers\Admin\CityDeliveriesController::class,'create'])->name('city_deliveries.create');
-      Route::post('/city_deliveries', [\App\Http\Controllers\Admin\CityDeliveriesController::class,'store'])->name('city_deliveries.store');
-      Route::get('/categories/edit/{id}', [\App\Http\Controllers\Admin\CategoriesController::class,'edit'])->name('categories.edit');
-      Route::post('/categories/{id}', [\App\Http\Controllers\Admin\CategoriesController::class,'update'])->name('categories.update');
-      Route::get('/categories/delete/{id}', [\App\Http\Controllers\Admin\CategoriesController::class, 'delete'])->name('categories.delete'); */
+
+      Route::get('/rules', [\App\Http\Controllers\Admin\RulesController::class,'index'])->name('rules.index');
+      Route::get('/rules/create', [\App\Http\Controllers\Admin\RulesController::class,'create'])->name('rules.create');
+      Route::post('/rules', [\App\Http\Controllers\Admin\RulesController::class,'store'])->name('rules.store');
+      Route::get('/rules/delete/{id}', [\App\Http\Controllers\Admin\RulesController::class, 'delete'])->name('rules.delete');
+
 });
 
 Auth::routes();
