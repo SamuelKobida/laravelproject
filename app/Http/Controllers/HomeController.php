@@ -11,4 +11,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+    public function resolve(Request $order){
+        //dd($order);
+
+    }
+
 }

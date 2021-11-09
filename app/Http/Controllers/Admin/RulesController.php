@@ -45,7 +45,7 @@ class RulesController extends Controller
     }
 
 
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
         $rule = Rule::findOrFail($id);
 
