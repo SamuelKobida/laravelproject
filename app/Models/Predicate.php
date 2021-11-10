@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Predicate extends Model
 {
     use HasFactory;
-
+    protected $table='predicates';
     protected $fillable = [
         'name',
         'class',
@@ -17,6 +17,6 @@ class Predicate extends Model
     ];
 
     public function rules(){
-        return $this->hasMany('App\Model\Rule');
+        return $this->hasMany('App\Models\Rule');
     }
 }

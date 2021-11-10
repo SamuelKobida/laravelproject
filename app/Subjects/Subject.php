@@ -9,6 +9,6 @@ class Subject
 
 
 {
-    protected $value;
+    public $value;
 
 }

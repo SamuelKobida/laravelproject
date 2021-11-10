@@ -17,9 +17,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('/Nitra', [\App\Http\Controllers\HomeController::class,'resolve']);
-Route::post('/Bratislava', [\App\Http\Controllers\HomeController::class,'resolve']);
-Route::post('/Kosice', [\App\Http\Controllers\HomeController::class,'resolve']);
+Route::post('/resolve', [\App\Http\Controllers\HomeController::class,'resolve']);
 
 
 Route::middleware(['auth', 'is_admin'])->namespace('Admin')->prefix('admin')->group(function(){

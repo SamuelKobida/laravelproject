@@ -12,8 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'http://localhost/laravelproject/public/Nitra',
-        'http://localhost/laravelproject/public/Bratislava',
-        'http://localhost/laravelproject/public/Kosice'
+        'http://localhost/laravelproject/public/resolve',
     ];
 }
