@@ -17,9 +17,6 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('/resolve', [\App\Http\Controllers\HomeController::class,'resolve']);
-
-
 Route::middleware(['auth', 'is_admin'])->namespace('Admin')->prefix('admin')->group(function(){
 
     Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'])->name('admin_dashboard');
