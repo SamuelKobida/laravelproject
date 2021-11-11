@@ -6,6 +6,7 @@
 
         <input type="text" name="name" placeholder="Názov pravidla"><br>
         <input type="text" name="value" placeholder="Vkladaná hodnota"><br>
+        <input type="text" name="priority" placeholder="Priorita"><br>
 
         <select type="text" name="carrier_service_id">
             <option value="">Vybrať kuriérsku službu</option>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Carrier_service extends Model
 {
     use HasFactory;
+    protected $table='carrier_services';
     protected $fillable = [
         'name',
         'code',
@@ -17,9 +18,9 @@ class Carrier_service extends Model
     ];
 
     public function carrier(){
-        return $this->belongsTo('App\Model\Carrier');
+        return $this->belongsTo('App\Models\Carrier');
     }
     public function rules(){
-        return $this->hasMany('App\Model\Rule');
+        return $this->hasMany('App\Models\Rule');
     }
 }

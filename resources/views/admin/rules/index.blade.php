@@ -15,6 +15,9 @@
                 Vkladaná hodnota
             </th>
             <th>
+                Priorita
+            </th>
+            <th>
                 Kurierska služba
             </th>
             <th>
@@ -39,6 +42,7 @@
                 <td>{{ $rule->id }}</td>
                 <td>{{ $rule->name }}</td>
                 <td>{{ $rule->value }}</td>
+                <td>{{ $rule->priority }}</td>
                 <td>{{ $carrier_service[$rule->carrier_service_id-1]->name}}</td>
                 <td>{{ $eshop[$rule->eshop_id-1]->name}}</td>
                 <td>{{ $subject[$rule->subject_id-1]->name }}</td>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Eshop extends Model
 {
     use HasFactory;
+    protected $table='eshops';
     protected $fillable = [
         'name',
         'created_at',
@@ -15,9 +16,9 @@ class Eshop extends Model
     ];
 
     public function carriers(){
-        return $this->hasMany('App\Model\Carrier');
+        return $this->hasMany('App\Models\Carrier');
     }
     public function rules(){
-        return $this->hasMany('App\Model\Rule');
+        return $this->hasMany('App\Models\Rule');
     }
 }

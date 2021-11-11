@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Rule extends Model
 {
     use HasFactory;
+    protected $table='rules';
     protected $fillable = [
         'name',
         'value',
+        'priority',
         'carrier_service_id',
         'eshop_id',
         'subject_id',
@@ -20,15 +22,15 @@ class Rule extends Model
     ];
 
     public function carrier_service(){
-        return $this->belongsTo('App\Model\Carrier_service');
+        return $this->belongsTo('App\Models\Carrier_service');
     }
     public function eshop(){
-        return $this->belongsTo('App\Model\Eshop');
+        return $this->belongsTo('App\Models\Eshop');
     }
     public function subject(){
-        return $this->belongsTo('App\Model\Subject');
+        return $this->belongsTo('App\Models\Subject');
     }
     public function predicate(){
-        return $this->belongsTo('App\Model\Predicate');
+        return $this->belongsTo('App\Models\Predicate');
     }
 }
