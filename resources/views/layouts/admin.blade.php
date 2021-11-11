@@ -4,7 +4,7 @@
     <title>Admin LaravelProject</title>
 </head>
 <body>
-Nadupane admin rozhranie
+<button><a href="{{ route('rules.index') }}">Pravidlá</a></button>
 @yield("content")
 
 </body>

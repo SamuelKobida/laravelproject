@@ -17,6 +17,7 @@ class CreateRulesTable extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('value', 255);
+            $table->integer('priority');
             $table->unsignedBigInteger('carrier_service_id');
             $table->unsignedBigInteger('eshop_id');
             $table->unsignedBigInteger('subject_id');
