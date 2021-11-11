@@ -19,7 +19,7 @@ class HomeController extends Controller
     public function resolve(Request $order)
     {
         $selectedRule=[];
-        $rules = Rule::all();
+        $rules = Rule::orderBy('priority')->get();
         foreach ($rules as $rule) {
             $subject = app($rule->subject->class);
             $predicate = app($rule->predicate->class);

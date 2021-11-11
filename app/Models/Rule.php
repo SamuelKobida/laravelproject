@@ -12,6 +12,7 @@ class Rule extends Model
     protected $fillable = [
         'name',
         'value',
+        'priority',
         'carrier_service_id',
         'eshop_id',
         'subject_id',
