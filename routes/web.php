@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,19 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::middleware(['auth', 'is_admin'])->namespace('Admin')->prefix('admin')->group(function(){
-
-    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'])->name('admin_dashboard');
-
-      Route::get('/rules', [\App\Http\Controllers\Admin\RulesController::class,'index'])->name('rules.index');
-      Route::get('/rules/create', [\App\Http\Controllers\Admin\RulesController::class,'create'])->name('rules.create');
-      Route::post('/rules', [\App\Http\Controllers\Admin\RulesController::class,'store'])->name('rules.store');
-      Route::get('/rules/delete/{id}', [\App\Http\Controllers\Admin\RulesController::class, 'delete'])->name('rules.delete');
-
+Route::get('/', function () {
+    return view('welcome');
 });
-
-
