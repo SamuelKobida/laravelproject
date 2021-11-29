@@ -7,7 +7,7 @@ use App\Subjects\IsCity;
 use App\Models\Rule;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ResolveController extends Controller
 {
 
     public function index()

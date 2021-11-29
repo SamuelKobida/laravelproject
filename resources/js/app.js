@@ -1,5 +1,7 @@
-import {createApp} from "vue";
+require('./bootstrap');
 
-import App from "./vue/App.vue"
+import { createApp } from "vue";
+
+import App from "./components/App.vue"
 
 createApp(App).mount("#example");
