@@ -2,7 +2,8 @@
     <div class="header">
 
         <Header/>
-        <AddRule/>
+<AddRule/>
+        <Index/>
 
     <div class="container">
         hello im app.vue
@@ -12,12 +13,15 @@
 </template>
 
 <script>
-    import Header from "./Header"
+    import Header from "./Header";
     import AddRule from "./AddRule";
+    import Index from "./Index";
+
     export default {
         components: {
             Header,
-            AddRule
+            AddRule,
+            Index
         }
     }
 </script>

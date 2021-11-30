@@ -47,6 +47,7 @@ export default {
             subjects: [],
             carrier_services: [],
             eshops: [],
+            message: [],
         }
     },
     mounted() {
@@ -54,6 +55,7 @@ export default {
     this.loadSubjects();
     this.loadEshops();
     this.loadCarrier_services();
+
     },
     methods: {
         loadPredicates: function (){
@@ -67,6 +69,7 @@ export default {
         loadSubjects: function (){
             axios.get("http://localhost/laravelproject/public/api/subjects").then(response => {
                 this.subjects = response.data;
+                //console.log(response.data);
             }).catch(function (error) {
                 console.log(error);
             });

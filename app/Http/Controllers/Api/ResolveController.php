@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Predicates\IsEqual;
-use App\Subjects\IsCity;
-
+namespace App\Http\Controllers\Api;
+use App\Http\Controllers\Controller;
 use App\Models\Rule;
 use Illuminate\Http\Request;
 
 class ResolveController extends Controller
 {
 
-    public function index()
-    {
-        return view('home');
-    }
 
 
     public function resolve(Request $order)
