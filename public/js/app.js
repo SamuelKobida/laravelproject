@@ -19172,7 +19172,6 @@ __webpack_require__.r(__webpack_exports__);
   name: "AddRule",
   data: function data() {
     return {
-      url: "http://localhost/laravelproject/public/api/rules",
       predicates: [],
       subjects: [],
       carrier_services: [],
@@ -19189,7 +19188,7 @@ __webpack_require__.r(__webpack_exports__);
     loadPredicates: function loadPredicates() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/predicates").then(function (response) {
         _this.predicates = response.data;
       })["catch"](function (error) {
         console.log(error);
@@ -19198,7 +19197,7 @@ __webpack_require__.r(__webpack_exports__);
     loadSubjects: function loadSubjects() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/subjects").then(function (response) {
         _this2.subjects = response.data;
       })["catch"](function (error) {
         console.log(error);
@@ -19207,7 +19206,7 @@ __webpack_require__.r(__webpack_exports__);
     loadCarrier_services: function loadCarrier_services() {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/carrier_services").then(function (response) {
         _this3.carrier_services = response.data;
       })["catch"](function (error) {
         console.log(error);
@@ -19216,7 +19215,7 @@ __webpack_require__.r(__webpack_exports__);
     loadEshops: function loadEshops() {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get(this.url).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/eshops").then(function (response) {
         _this4.eshops = response.data;
       })["catch"](function (error) {
         console.log(error);

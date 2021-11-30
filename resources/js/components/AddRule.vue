@@ -6,26 +6,26 @@
         <input type="text" name="priority" placeholder="Priorita"><br>
 
         <select type="text" name="carrier_service_id">
-            <option v-for="carrier_service in carrier_services"
-                    :value="carrier_service.id">{{ carrier_service.name }}
+            <option v-for="carrier_service in carrier_services" :value="carrier_service.id">
+                {{ carrier_service.name }}
             </option>
         </select><br>
 
         <select type="text" name="eshop_id">
-            <option v-for="eshop in eshops"
-                    :value="eshop.id">{{ eshop.name }}
+            <option v-for="eshop in eshops" :value="eshop.id">
+                {{ eshop.name }}
             </option>
         </select><br>
 
         <select type="text" name="subject_id">
-            <option v-for="subject in subjects"
-                    :value="subject.id">{{ subject.name }}
+            <option v-for="subject in subjects" :value="subject.id">
+                {{ subject.name }}
             </option>
         </select><br>
 
         <select type="text" name="predicate_id">
-            <option v-for="predicate in predicates"
-                    :value="predicate.id">{{ predicate.name }}
+            <option v-for="predicate in predicates" :value="predicate.id">
+                {{ predicate.name }}
             </option>
         </select><br>
 
@@ -43,7 +43,6 @@ export default {
 
     data() {
         return{
-            url: "http://localhost/laravelproject/public/api/rules",
             predicates: [],
             subjects: [],
             carrier_services: [],
@@ -54,11 +53,11 @@ export default {
     this.loadPredicates();
     this.loadSubjects();
     this.loadEshops();
-    this.loadCarrier_services()
+    this.loadCarrier_services();
     },
     methods: {
         loadPredicates: function (){
-            axios.get(this.url).then(response => {
+            axios.get("http://localhost/laravelproject/public/api/predicates").then(response => {
                 this.predicates = response.data;
             }).catch(function (error) {
                 console.log(error);
@@ -66,7 +65,7 @@ export default {
         },
 
         loadSubjects: function (){
-            axios.get(this.url).then(response => {
+            axios.get("http://localhost/laravelproject/public/api/subjects").then(response => {
                 this.subjects = response.data;
             }).catch(function (error) {
                 console.log(error);
@@ -74,7 +73,7 @@ export default {
         },
 
         loadCarrier_services: function (){
-            axios.get(this.url).then(response => {
+            axios.get("http://localhost/laravelproject/public/api/carrier_services").then(response => {
                 this.carrier_services = response.data;
             }).catch(function (error) {
                 console.log(error);
@@ -82,7 +81,7 @@ export default {
         },
 
         loadEshops: function (){
-            axios.get(this.url).then(response => {
+            axios.get("http://localhost/laravelproject/public/api/eshops").then(response => {
                 this.eshops = response.data;
             }).catch(function (error) {
                 console.log(error);

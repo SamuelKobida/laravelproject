@@ -23,7 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/resolve', [ResolveController::class,'resolve']);
 
-Route::get('/rules', [RulesController::class,'index']);
+Route::get('/subjects', [RulesController::class,'subjects']);
+Route::get('/predicates', [RulesController::class,'predicates']);
+Route::get('/eshops', [RulesController::class,'eshops']);
+Route::get('/carrier_services', [RulesController::class,'carrier_services']);
+
 Route::post('/rulestore', [RulesController::class,'store']);
 Route::delete('/rules/delete/{id}', [RulesController::class, 'delete']);
 
