@@ -1,15 +1,15 @@
 <template>
+
     <div class="header">
 
         <Header/>
-<AddRule/>
-        <Index/>
+        <router-view></router-view>
+        <div class="container">
 
-    <div class="container">
-        hello im app.vue
-    </div>
+        </div>
 
     </div>
+
 </template>
 
 <script>
