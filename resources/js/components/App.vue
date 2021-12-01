@@ -16,9 +16,11 @@
     import Header from "./Header";
     import AddRule from "./AddRule";
     import Index from "./Index";
+    import Home from "./Home";
 
     export default {
         components: {
+            Home,
             Header,
             AddRule,
             Index
