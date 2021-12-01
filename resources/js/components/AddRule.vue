@@ -1,29 +1,29 @@
 <template>
     <form @submit.prevent="submit">
 
-        <input type="text" name="name" v-model="fields.name" placeholder="Názov pravidla"><br>
-        <input type="text" name="value" v-model="fields.value" placeholder="Vkladaná hodnota"><br>
-        <input type="text" name="priority" v-model="fields.priority"  placeholder="Priorita"><br>
+        <input type="text" name="name" v-model="name" placeholder="Názov pravidla"><br>
+        <input type="text" name="value" v-model="value" placeholder="Vkladaná hodnota"><br>
+        <input type="text" name="priority" v-model="priority"  placeholder="Priorita"><br>
 
-        <select type="text" name="carrier_service_id" v-model="fields.carrier_service_id" >
+        <select type="text" name="carrier_service_id" v-model="carrier_service_id" >
             <option v-for="carrier_service in carrier_services" :value="carrier_service.id">
                 {{ carrier_service.name }}
             </option>
         </select><br>
 
-        <select type="text" name="eshop_id" v-model="fields.eshop_id" >
+        <select type="text" name="eshop_id" v-model="eshop_id" >
             <option v-for="eshop in eshops" :value="eshop.id">
                 {{ eshop.name }}
             </option>
         </select><br>
 
-        <select type="text" name="subject_id" v-model="fields.subject_id" >
+        <select type="text" name="subject_id" v-model="subject_id" >
             <option v-for="subject in subjects" :value="subject.id">
                 {{ subject.name }}
             </option>
         </select><br>
 
-        <select type="text" name="predicate_id" v-model="fields.predicate_id" >
+        <select type="text" name="predicate_id" v-model="predicate_id" >
             <option v-for="predicate in predicates" :value="predicate.id">
                 {{ predicate.name }}
             </option>
@@ -49,7 +49,15 @@ export default {
             subjects: [],
             carrier_services: [],
             eshops: [],
-            fields: []
+        ///
+            predicate_id:"",
+            subject_id:"",
+            carrier_service_id:"",
+            eshop_id:"",
+            name:"",
+            value:"",
+            priority:""
+
         }
     },
     mounted() {
@@ -94,8 +102,16 @@ export default {
         },
 
         submit() {
-                this.axios.post("./api/rulestore", this.fields).then((response) => {
-                    this.fields=[];
+                this.axios.post("./api/rulestore", {
+                    predicate_id:this.predicate_id,
+                    subject_id:this.subject_id,
+                    carrier_service_id:this.carrier_service_id,
+                    eshop_id:this.eshop_id,
+                    name:this.name,
+                    value:this.value,
+                    priority:this.priority,
+                }).then((response) => {
+
                 }).catch(function (error) {
                     console.log(error);
                 });
