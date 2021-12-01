@@ -1,36 +1,38 @@
 <template>
-    <form method="post" enctype="multipart/form-data">
+    <form @submit.prevent="submit">
 
-        <input type="text" name="name" placeholder="Názov pravidla"><br>
-        <input type="text" name="value" placeholder="Vkladaná hodnota"><br>
-        <input type="text" name="priority" placeholder="Priorita"><br>
+        <input type="text" name="name" v-model="fields.name" placeholder="Názov pravidla"><br>
+        <input type="text" name="value" v-model="fields.value" placeholder="Vkladaná hodnota"><br>
+        <input type="text" name="priority" v-model="fields.priority"  placeholder="Priorita"><br>
 
-        <select type="text" name="carrier_service_id">
+        <select type="text" name="carrier_service_id" v-model="fields.carrier_service_id" >
             <option v-for="carrier_service in carrier_services" :value="carrier_service.id">
                 {{ carrier_service.name }}
             </option>
         </select><br>
 
-        <select type="text" name="eshop_id">
+        <select type="text" name="eshop_id" v-model="fields.eshop_id" >
             <option v-for="eshop in eshops" :value="eshop.id">
                 {{ eshop.name }}
             </option>
         </select><br>
 
-        <select type="text" name="subject_id">
+        <select type="text" name="subject_id" v-model="fields.subject_id" >
             <option v-for="subject in subjects" :value="subject.id">
                 {{ subject.name }}
             </option>
         </select><br>
 
-        <select type="text" name="predicate_id">
+        <select type="text" name="predicate_id" v-model="fields.predicate_id" >
             <option v-for="predicate in predicates" :value="predicate.id">
                 {{ predicate.name }}
             </option>
         </select><br>
 
 
-        <input type="submit" value="Ulozit">
+        <button type="submit" class="btn btn-primary">
+            Submit Ticket
+        </button>
 
     </form>
 
@@ -47,7 +49,7 @@ export default {
             subjects: [],
             carrier_services: [],
             eshops: [],
-            message: [],
+            fields: []
         }
     },
     mounted() {
@@ -90,6 +92,16 @@ export default {
                 console.log(error);
             });
         },
+
+        submit() {
+                this.axios.post("./api/rulestore", this.fields).then((response) => {
+                    this.fields=[];
+                }).catch(function (error) {
+                    console.log(error);
+                });
+        },
+
+
     }
 }
 </script>
