@@ -27,7 +27,9 @@
             <th>
                 Predicate
             </th>
-
+            <th>
+                Status
+            </th>
 
         </tr>
         </thead>
@@ -42,13 +44,19 @@
             <td>{{ rule.service }}</td>
             <td>{{ rule.predicate }}</td>
             <td>{{ rule.subject }}</td>
-            <button type="submit" class="btn btn-primary">
-                Edit rule </button>
+            <td style="color: green" v-if="rule.isActive">Active</td>
+            <td style="color: red" v-else>Inactive</td>
+            <button
+                type="submit"
+                class="btn btn-primary"
+                @click="editRule(rule.id)">
+                Change status
+            </button>
             <button
                 type="button"
                 class="btn btn-danger"
                 @click="deleteRule(rule.id)">
-                Delete rule
+                Delete ruler
             </button>
         </tr>
 
@@ -82,6 +90,14 @@ export default {
     methods: {
         deleteRule(id) {
             axios.delete(`./api/rules/delete/${id}`)
+                .then((response) => {
+                    window.location.reload()
+                }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        editRule(id) {
+            axios.post(`./api/rules/changeStatus/${id}`)
                 .then((response) => {
                     window.location.reload()
                 }).catch(function (error) {

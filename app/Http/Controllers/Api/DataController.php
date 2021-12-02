@@ -35,7 +35,7 @@ class DataController extends Controller
     }
 
     public function getRules(){
-        $rules = DB::select("SELECT rules.id as id, rules.name as name, rules.value as name_value, rules.priority as priority, carrier_services.name as service, eshops.name as eshop, subjects.name as subject, predicates.name as predicate FROM rules INNER JOIN carrier_services ON rules.carrier_service_id=carrier_services.id INNER JOIN eshops ON rules.eshop_id=eshops.id INNER JOIN subjects ON rules.subject_id=subjects.id INNER JOIN predicates ON rules.predicate_id=predicates.id");
+        $rules = DB::select("SELECT rules.id as id, rules.name as name, rules.value as name_value, rules.priority as priority, rules.isActive as isActive, carrier_services.name as service, eshops.name as eshop, subjects.name as subject, predicates.name as predicate FROM rules INNER JOIN carrier_services ON rules.carrier_service_id=carrier_services.id INNER JOIN eshops ON rules.eshop_id=eshops.id INNER JOIN subjects ON rules.subject_id=subjects.id INNER JOIN predicates ON rules.predicate_id=predicates.id");
         return $rules;
     }
 

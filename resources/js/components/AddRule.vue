@@ -56,8 +56,8 @@ export default {
             eshop_id:"",
             name:"",
             value:"",
-            priority:""
-
+            priority:"",
+            isActive:""
         }
     },
     mounted() {
@@ -110,6 +110,7 @@ export default {
                     name:this.name,
                     value:this.value,
                     priority:this.priority,
+                    isActive:true
                 }).then((response) => {
 
                 }).catch(function (error) {

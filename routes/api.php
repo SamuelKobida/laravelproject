@@ -36,6 +36,7 @@ Route::get('/rules', [DataController::class,'getRules']);
 //MANAGIN RULES
 Route::post('/rulestore', [RulesController::class,'store']);
 Route::delete('/rules/delete/{id}', [RulesController::class, 'delete']);
+Route::post('/rules/changeStatus/{id}', [RulesController::class,'changeStatus']);
 
 //Auth::routes();
 

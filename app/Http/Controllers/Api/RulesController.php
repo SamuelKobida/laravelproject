@@ -19,6 +19,7 @@ class RulesController extends Controller
             $rule->eshop_id=($request->eshop_id);
             $rule->subject_id=($request->subject_id);
             $rule->predicate_id=($request->predicate_id);
+            $rule->isActive=($request->isActive);
             $rule->save();
 
             return $rule;
@@ -32,6 +33,15 @@ class RulesController extends Controller
         $rule->delete();
 
          return $rule;
+    }
+
+    public function changeStatus($id)
+    {
+        $rule = Rule::findOrFail($id);
+        $rule->isActive = !$rule->isActive;
+        $rule->save();
+
+        return $rule;
     }
 
 }
