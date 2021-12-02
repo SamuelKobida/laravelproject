@@ -34,7 +34,6 @@
         <tbody>
 
         <tr v-for="rule in rules" :value="rule.id">
-
             <td>{{ rule.id }}</td>
             <td>{{ rule.name }}</td>
             <td>{{ rule.name_value }}</td>
@@ -43,7 +42,14 @@
             <td>{{ rule.service }}</td>
             <td>{{ rule.predicate }}</td>
             <td>{{ rule.subject }}</td>
-
+            <button type="submit" class="btn btn-primary">
+                Edit rule </button>
+            <button
+                type="button"
+                class="btn btn-danger"
+                @click="deleteRule(rule.id)">
+                Delete rule
+            </button>
         </tr>
 
         </tbody>
@@ -72,6 +78,17 @@ export default {
             console.log(error);
         });
     },
+
+    methods: {
+        deleteRule(id) {
+            axios.delete(`./api/rules/delete/${id}`)
+                .then((response) => {
+                    window.location.reload()
+                }).catch(function (error) {
+                console.log(error);
+            });
+        },
+    }
 
 }
 </script>
