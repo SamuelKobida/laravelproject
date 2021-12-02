@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Api\DataController;
+use App\Http\Controllers\Api\RulesController;
+use App\Http\Controllers\Api\ResolveController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\RulesController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\HomeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,21 +23,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/resolve', [\App\Http\Controllers\HomeController::class,'resolve']);
+//POSTMAN
+Route::post('/resolve', [ResolveController::class,'resolve']);
+
+//GETTING DATA FROM LARAVEL
+Route::get('/subjects', [DataController::class,'subjects']);
+Route::get('/predicates', [DataController::class,'predicates']);
+Route::get('/eshops', [DataController::class,'eshops']);
+Route::get('/carrier_services', [DataController::class,'carrier_services']);
+Route::get('/rules', [DataController::class,'getRules']);
+
+//MANAGIN RULES
+Route::post('/rulestore', [RulesController::class,'store']);
+Route::delete('/rules/delete/{id}', [RulesController::class, 'delete']);
+Route::post('/rules/changeStatus/{id}', [RulesController::class,'changeStatus']);
+
+//Auth::routes();
+
+//Route::middleware(['auth', 'is_admin'])->namespace('Admin')->prefix('admin')->group(function(){
 
 
-
-Auth::routes();
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::middleware(['auth', 'is_admin'])->namespace('Admin')->prefix('admin')->group(function(){
-
-    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'])->name('admin_dashboard');
-
-    Route::get('/rules', [\App\Http\Controllers\Admin\RulesController::class,'index'])->name('rules.index');
-    Route::get('/rules/create', [\App\Http\Controllers\Admin\RulesController::class,'create'])->name('rules.create');
-    Route::post('/rules', [\App\Http\Controllers\Admin\RulesController::class,'store'])->name('rules.store');
-    Route::get('/rules/delete/{id}', [\App\Http\Controllers\Admin\RulesController::class, 'delete'])->name('rules.delete');
-
-});
+//});

@@ -23,6 +23,7 @@ class CreateRulesTable extends Migration
             $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('predicate_id');
             $table->timestamps();
+            $table->boolean('isActive');
         });
 
 

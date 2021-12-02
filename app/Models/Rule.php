@@ -18,7 +18,8 @@ class Rule extends Model
         'subject_id',
         'predicate_id',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'isActive'
     ];
 
     public function carrier_service(){
