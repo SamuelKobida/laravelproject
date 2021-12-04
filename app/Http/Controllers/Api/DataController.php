@@ -7,6 +7,7 @@ use App\Models\Carrier_service;
 use App\Models\Eshop;
 use App\Models\Predicate;
 use App\Models\Subject;
+use App\Models\Carrier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -32,6 +33,22 @@ class DataController extends Controller
         $eshops= Eshop::all();
 
         return $eshops;
+    }
+
+    public function carriers(){
+        $carriers = Carrier::all();
+
+        return $carriers;
+    }
+
+    public function specificCarriers($id){
+        $carriersunfiltered = Carrier::all();
+        return $carriersunfiltered->whereIn('eshop_id', [$id]);
+    }
+
+    public function specificCarrierServices($id){
+        $carrier_services_unfiltered = Carrier_service::all();
+        return $carrier_services_unfiltered->whereIn('carrier_id', [$id]);
     }
 
     public function getRules(){
