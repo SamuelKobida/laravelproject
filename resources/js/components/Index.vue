@@ -16,10 +16,10 @@
                 Priorita
             </th>
             <th>
-                Kurierska služba
+                E-shop
             </th>
             <th>
-                Eshop
+                Kuriérska služba
             </th>
             <th>
                 Subject
@@ -52,12 +52,9 @@
                 @click="editRule(rule.id)">
                 Change status
             </button>
-            <button
-                type="button"
-                class="btn btn-danger"
-                @click="deleteRule(rule.id)">
-                Delete ruler
-            </button>
+            <button class="btn btn-danger" @click="deleteRule(rule.id)">Delete rule</button>
+            <confirm-dialogue ref="confirmDialogue"></confirm-dialogue>
+            <info-dialogue ref="infoDialogue"></info-dialogue>
         </tr>
 
         </tbody>
@@ -68,8 +65,12 @@
 
 <script>
 import axios from "axios";
+import ConfirmDialogue from '../components/ConfirmDialogue.vue'
+import InfoDialogue from '../components/InfoDialogue.vue'
 
 export default {
+    components: { ConfirmDialogue, InfoDialogue },
+
     name: "Index",
 
     data() {
@@ -88,21 +89,47 @@ export default {
     },
 
     methods: {
-        deleteRule(id) {
-            axios.delete(`./api/rules/delete/${id}`)
-                .then((response) => {
-                    window.location.reload()
-                }).catch(function (error) {
-                console.log(error);
-            });
+        async deleteRule(id) {
+            const ok = await this.$refs.confirmDialogue.show({
+                title: 'Delete rule',
+                message: `Naozaj chcete odstrániť pravidlo s ID ${id} ?`,
+                okButton: 'Odstrániť',
+            })
+            if (ok) {
+                axios.delete(`./api/rules/delete/${id}`)
+                    .then(async (response) => {
+                        const ok = await this.$refs.infoDialogue.show({
+                            title: 'Delete rule',
+                            message: `Úspešne ste odstránili pravidlo`,
+                            okButton: 'Ok',
+                        })
+                        window.location.reload()
+                    }).catch(function (error) {
+                    console.log(error);
+                });
+            } else {
+            }
         },
-        editRule(id) {
-            axios.post(`./api/rules/changeStatus/${id}`)
-                .then((response) => {
-                    window.location.reload()
-                }).catch(function (error) {
-                console.log(error);
-            });
+        async editRule(id) {
+            const ok = await this.$refs.confirmDialogue.show({
+                title: 'Change rule status',
+                message: `Naozaj chcete zmeniť stav pravidla s ID ${id} ?`,
+                okButton: 'Zmeniť',
+            })
+            if (ok) {
+                axios.post(`./api/rules/changeStatus/${id}`)
+                    .then(async (response) => {
+                        const ok = await this.$refs.infoDialogue.show({
+                            title: 'Delete rule',
+                            message: `Úspešne ste zmenili stav pravidla`,
+                            okButton: 'Ok',
+                        })
+                        window.location.reload()
+                    }).catch(function (error) {
+                    console.log(error);
+                });
+            } else {
+            }
         },
     }
 
