@@ -22,10 +22,10 @@
                 Kuriérska služba
             </th>
             <th>
-                Subject
+                Predicate
             </th>
             <th>
-                Predicate
+                Subject
             </th>
             <th>
                 Status
