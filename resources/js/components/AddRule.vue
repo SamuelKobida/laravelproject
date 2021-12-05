@@ -117,6 +117,8 @@ export default {
 
         loadEshops: function () {
             this.eshops = ""
+            this.carriers = ""
+            this.carrier_services = ""
             axios.get("http://localhost/laravelproject/public/api/eshops").then(response => {
                 this.eshops = response.data;
             }).catch(function (error) {
@@ -219,8 +221,8 @@ export default {
         },
 
         nacitajKurierov: function (x) {
-            this.fields.carrier_id = ""
-            this.fields.carrier_service_id = ""
+            this.carriers = ""
+            this.carrier_services = ""
             axios.get(`http://localhost/laravelproject/public/api/specificCarriers/${x}`).then(response => {
                 this.carriers = response.data;
             }).catch(function (error) {
@@ -229,7 +231,7 @@ export default {
         },
 
         nacitajKurierskeSluzby: function (x) {
-            this.fields.carrier_service_id= ""
+            this.carrier_services = ""
             axios.get(`http://localhost/laravelproject/public/api/specificCarrierServices/${x}`).then(response => {
                 this.carrier_services = response.data;
             }).catch(function (error) {

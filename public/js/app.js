@@ -19589,6 +19589,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       this.eshops = "";
+      this.carriers = "";
+      this.carrier_services = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/eshops").then(function (response) {
         _this4.eshops = response.data;
       })["catch"](function (error) {
@@ -19746,8 +19748,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     nacitajKurierov: function nacitajKurierov(x) {
       var _this7 = this;
 
-      this.fields.carrier_id = "";
-      this.fields.carrier_service_id = "";
+      this.carriers = "";
+      this.carrier_services = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarriers/".concat(x)).then(function (response) {
         _this7.carriers = response.data;
       })["catch"](function (error) {
@@ -19757,7 +19759,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     nacitajKurierskeSluzby: function nacitajKurierskeSluzby(x) {
       var _this8 = this;
 
-      this.fields.carrier_service_id = "";
+      this.carrier_services = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarrierServices/".concat(x)).then(function (response) {
         _this8.carrier_services = response.data;
       })["catch"](function (error) {
