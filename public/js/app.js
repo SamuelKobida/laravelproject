@@ -19749,7 +19749,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this7 = this;
 
       this.carriers = "";
+      this.fields.carrier_id = "";
       this.carrier_services = "";
+      this.fields.carrier_service_id = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarriers/".concat(x)).then(function (response) {
         _this7.carriers = response.data;
       })["catch"](function (error) {
@@ -19760,6 +19762,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this8 = this;
 
       this.carrier_services = "";
+      this.fields.carrier_service_id = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarrierServices/".concat(x)).then(function (response) {
         _this8.carrier_services = response.data;
       })["catch"](function (error) {

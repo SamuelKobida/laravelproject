@@ -222,7 +222,9 @@ export default {
 
         nacitajKurierov: function (x) {
             this.carriers = ""
+            this.fields.carrier_id = ""
             this.carrier_services = ""
+            this.fields.carrier_service_id = ""
             axios.get(`http://localhost/laravelproject/public/api/specificCarriers/${x}`).then(response => {
                 this.carriers = response.data;
             }).catch(function (error) {
@@ -232,6 +234,7 @@ export default {
 
         nacitajKurierskeSluzby: function (x) {
             this.carrier_services = ""
+            this.fields.carrier_service_id = ""
             axios.get(`http://localhost/laravelproject/public/api/specificCarrierServices/${x}`).then(response => {
                 this.carrier_services = response.data;
             }).catch(function (error) {
