@@ -19907,7 +19907,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push({
         name: 'rules',
         params: {
-          idEshopu: $id
+          id: $id
         }
       });
     }
@@ -20270,14 +20270,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       rules: []
     };
   },
-  props: {
-    idEshopu: Number
-  },
   mounted: function mounted() {
     var _this = this;
 
-    console.log(this.$route.query);
-    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificRules/" + this.idEshopu).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificRules/" + this.$route.params.id).then(function (response) {
       _this.rules = response.data;
       console.log(response.data);
     })["catch"](function (error) {
@@ -21319,7 +21315,7 @@ var routes = [{
   component: _components_EshopList__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   name: 'rules',
-  path: base_path + 'rules',
+  path: base_path + 'rules/:id',
   component: _components_Rules__WEBPACK_IMPORTED_MODULE_4__["default"],
   props: true
 }];

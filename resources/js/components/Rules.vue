@@ -57,17 +57,12 @@ export default {
 
     data() {
         return{
-            rules: [],
+            rules: []
         }
     },
-
-    props: {
-        idEshopu: Number,
-    },
-
     mounted() {
-        console.log(this.$route.query)
-        axios.get("http://localhost/laravelproject/public/api/specificRules/" + this.idEshopu).then(response => {
+
+        axios.get("http://localhost/laravelproject/public/api/specificRules/" + this.$route.params.id).then(response => {
             this.rules = response.data;
             console.log(response.data);
         }).catch(function (error) {

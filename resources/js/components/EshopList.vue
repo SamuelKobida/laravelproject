@@ -50,7 +50,7 @@ export default {
 
     methods: {
         loadRules($id) {
-            this.$router.push({ name: 'rules', params: { idEshopu: $id }})
+            this.$router.push({ name: 'rules', params: { id: $id }})
         }
     }
 

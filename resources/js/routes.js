@@ -30,7 +30,7 @@ export const routes = [
     },
     {
         name: 'rules',
-        path: base_path + 'rules',
+        path: base_path + 'rules/:id',
         component: Rules,
         props: true
     },
