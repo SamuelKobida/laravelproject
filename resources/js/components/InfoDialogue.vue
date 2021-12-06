@@ -5,7 +5,7 @@
         <p>{{ message }}</p>
             </div>
         <div class="btns">
-            <span class="ok-btn" @click="_confirm">{{ okButton }}</span>
+            <span class="btn btn-primary" @click="_confirm">{{ okButton }}</span>
         </div>
     </popup-modal>
 </template>
@@ -59,22 +59,6 @@ export default {
 </script>
 
 <style scoped>
-.btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
-.ok-btn {
-    padding: 0.5em 1em;
-    background-color: #ffffff;
-    color: blue;
-    border: 2px solid #0ec5a4;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-    cursor: pointer;
-}
 
 </style>

@@ -1,51 +1,66 @@
 <template>
+
     <form @submit.prevent="submit">
 
-        <input type="text" v-model="fields.name" placeholder="Názov pravidla"><br>
-        <input type="text" v-model="fields.value" placeholder="Vkladaná hodnota"><br>
-        <input type="text" v-model="fields.priority" placeholder="Priorita"><br>
+        <div class="form-group">
+            <label>Rule name</label>
+            <input class="form-control" v-model="fields.name" placeholder="Enter name">
+        </div>
 
-        <select type="text" v-model="fields.eshop_id" @change="nacitajKurierov(this.fields.eshop_id)">
-            <option v-for="eshop in eshops" :value="eshop.id">
-                {{ eshop.name }}
-            </option>
-        </select><br>
+        <div class="form-group">
+            <label>Value</label>
+            <input class="form-control" v-model="fields.value" placeholder="Enter value">
+        </div>
 
-        <select type="text" v-model="fields.carrier_id" @change="nacitajKurierskeSluzby(this.fields.carrier_id)">
-            <option v-for="carrier in carriers" :value="carrier.id">
-                {{ carrier.name }}
-            </option>
-        </select><br>
+        <div class="form-group">
+            <label>Priority</label>
+            <input class="form-control" v-model="fields.priority" placeholder="Enter priority">
+        </div>
 
-        <select type="text" v-model="fields.carrier_service_id">
-            <option v-for="carrier_service in carrier_services" :value="carrier_service.id">
-                {{ carrier_service.name }}
-            </option>
-        </select><br>
+        <div class="form-group">
+            <label>eShop</label>
+            <select class="form-control" v-model="fields.eshop_id" @change="nacitajKurierov(this.fields.eshop_id)">
+                <option v-for="eshop in eshops" :value="eshop.id">   {{ eshop.name }}   </option>
+            </select>
+        </div>
 
-        <select type="text" v-model="fields.subject_id">
-            <option v-for="subject in subjects" :value="subject.id">
-                {{ subject.name }}
-            </option>
-        </select><br>
+        <div class="form-group">
+            <label>Courier</label>
+            <select class="form-control"  v-model="fields.carrier_id" @change="nacitajKurierskeSluzby(this.fields.carrier_id)">
+                <option v-for="carrier in carriers" :value="carrier.id">  {{ carrier.name }}  </option>
+            </select>
+        </div>
 
-        <select type="text" v-model="fields.predicate_id">
-            <option v-for="predicate in predicates" :value="predicate.id">
-                {{ predicate.name }}
-            </option>
-        </select><br>
+        <div class="form-group">
+            <label>Service</label>
+            <select  class="form-control"  v-model="fields.carrier_service_id">
+                <option v-for="carrier_service in carrier_services" :value="carrier_service.id">   {{ carrier_service.name }}  </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Subject</label>
+            <select  class="form-control"  v-model="fields.subject_id">
+                <option v-for="subject in subjects" :value="subject.id">  {{ subject.name }}  </option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Predicate</label>
+            <select  class="form-control"  v-model="fields.predicate_id">
+                <option v-for="predicate in predicates" :value="predicate.id">  {{ predicate.name }}   </option>
+            </select>
+        </div>
 
 
-        <button
-            type="submit"
-            className="btn btn-primary"
-            @click="submit">
-            Submit rule
-        </button>
+        <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
         <confirm-dialogue ref="confirmDialogue"></confirm-dialogue>
         <info-dialogue ref="infoDialogue"></info-dialogue>
 
+
     </form>
+
+
 
 </template>
 
@@ -138,47 +153,47 @@ export default {
             let testicek = ""
             let sprava = ""
             if (this.fields.name.length < 1) {
-                sprava = sprava + `Pole "Názov pravidla" nesmie byť prázdne!\n`
+                sprava = sprava + `'Rule name' cannot be empty!\n`
             } else {
                 testicek = testicek + "j"
             }
             if (this.fields.value.length < 1) {
-                sprava = sprava + `Pole "Vkladaná hodnota" nesmie byť prázdne!\n`
+                sprava = sprava + `'Value' cannot be empty!\n`
             } else {
                 testicek = testicek + "e"
             }
             if (this.fields.priority % 1 !== 0) {
-                sprava = sprava + `Pole "Priorita" musí obsahovať celé číslo!\n`
+                sprava = sprava + `'Priority' must be integer!\n`
             } else {
                 testicek = testicek + "t"
             }
             if (this.fields.priority <= 0) {
-                sprava = sprava + `Pole "Priorita" musí obsahovať číslo väčšie ako 0!\n`
+                sprava = sprava + `'Priority' must be more than 0!\n`
             } else {
                 testicek = testicek + "o"
             }
             if (!this.fields.eshop_id) {
-                sprava = sprava + `Eshop nebol vybraný!\n`
+                sprava = sprava + `'eShop' was not selected!\n`
             } else {
                 testicek = testicek + "o"
             }
             if (!this.fields.carrier_id) {
-                sprava = sprava + `Kuriér nebol vybraný!\n`
+                sprava = sprava + `'Courier' was not selected!\n`
             } else {
                 testicek = testicek + "k"
             }
             if (!this.fields.carrier_service_id) {
-                sprava = sprava + `Kuriérska služba nebola vybraná!\n`
+                sprava = sprava + `'Service' was not selected!\n`
             } else {
                 testicek = testicek + "k"
             }
             if (!this.fields.subject_id) {
-                sprava = sprava + `Subjekt nebol vybraný!\n`
+                sprava = sprava + `'Subject' was not selected!\n`
             } else {
                 testicek = testicek + ":"
             }
             if (!this.fields.predicate_id) {
-                sprava = sprava + `Predikát nebol vybraný!\n`
+                sprava = sprava + `'Predicate' was not selected!\n`
             } else {
                 testicek = testicek + ")"
             }
@@ -199,15 +214,15 @@ export default {
             if (this.testicek()) {
                 const ok = await this.$refs.confirmDialogue.show({
                     title: 'Submit rule',
-                    message: `Naozaj chcete pridať nové pravidlo ?`,
-                    okButton: 'Pridať',
+                    message: `Are you sure, you want to submit new rule?`,
+                    okButton: 'Submit rule',
                 })
                 if (ok) {
                     axios.post("./api/rulestore", this.fields)
                         .then(async (response) => {
                             const ok = await this.$refs.infoDialogue.show({
                                 title: 'Submit rule',
-                                message: `Úspešne ste pridali pravidlo`,
+                                message: `Rule successfully submitted!`,
                                 okButton: 'Ok',
                             })
                             window.location.reload()
