@@ -6,6 +6,9 @@ import { routes } from "./routes";
 import axios from "axios";
 import VueAxios from "vue-axios";
 
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
+
 const router = createRouter({
     history: createWebHistory(),
     routes: routes
