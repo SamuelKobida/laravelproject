@@ -78,7 +78,7 @@ export default {
                 okButton: 'Delete rule',
             })
             if (ok) {
-                axios.delete(`./api/rules/delete/${id}`)
+                axios.delete(`../api/rules/delete/${id}`)
                     .then(async (response) => {
                         const ok = await this.$refs.infoDialogue.show({
                             title: 'Delete rule',
@@ -99,7 +99,7 @@ export default {
                 okButton: 'Change status',
             })
             if (ok) {
-                axios.post(`./api/rules/changeStatus/${id}`)
+                axios.post(`../api/rules/changeStatus/${id}`)
                     .then(async (response) => {
                         const ok = await this.$refs.infoDialogue.show({
                             title: 'Status changed',

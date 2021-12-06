@@ -20301,7 +20301,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 ok = _context2.sent;
 
                 if (ok) {
-                  axios__WEBPACK_IMPORTED_MODULE_1___default()["delete"]("./api/rules/delete/".concat(id)).then( /*#__PURE__*/function () {
+                  axios__WEBPACK_IMPORTED_MODULE_1___default()["delete"]("../api/rules/delete/".concat(id)).then( /*#__PURE__*/function () {
                     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(response) {
                       var ok;
                       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -20363,7 +20363,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 ok = _context4.sent;
 
                 if (ok) {
-                  axios__WEBPACK_IMPORTED_MODULE_1___default().post("./api/rules/changeStatus/".concat(id)).then( /*#__PURE__*/function () {
+                  axios__WEBPACK_IMPORTED_MODULE_1___default().post("../api/rules/changeStatus/".concat(id)).then( /*#__PURE__*/function () {
                     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(response) {
                       var ok;
                       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
