@@ -20244,10 +20244,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_ConfirmDialogue_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ConfirmDialogue.vue */ "./resources/js/components/ConfirmDialogue.vue");
+/* harmony import */ var _components_InfoDialogue_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/InfoDialogue.vue */ "./resources/js/components/InfoDialogue.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ConfirmDialogue: _components_ConfirmDialogue_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    InfoDialogue: _components_InfoDialogue_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
   name: "Rules",
   data: function data() {
     return {
@@ -20261,14 +20277,139 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     console.log(this.$route.query);
-    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/specificRules/" + this.idEshopu).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificRules/" + this.idEshopu).then(function (response) {
       _this.rules = response.data;
       console.log(response.data);
     })["catch"](function (error) {
       console.log(error);
     });
   },
-  methods: {}
+  methods: {
+    deleteRule: function deleteRule(id) {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var ok;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _this2.$refs.confirmDialogue.show({
+                  title: 'Delete rule',
+                  message: "Are you sure, you want to delete rule ".concat(id, " ?"),
+                  okButton: 'Delete rule'
+                });
+
+              case 2:
+                ok = _context2.sent;
+
+                if (ok) {
+                  axios__WEBPACK_IMPORTED_MODULE_1___default()["delete"]("./api/rules/delete/".concat(id)).then( /*#__PURE__*/function () {
+                    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(response) {
+                      var ok;
+                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+                        while (1) {
+                          switch (_context.prev = _context.next) {
+                            case 0:
+                              _context.next = 2;
+                              return _this2.$refs.infoDialogue.show({
+                                title: 'Delete rule',
+                                message: "Rule successfully deleted! ",
+                                okButton: 'Ok'
+                              });
+
+                            case 2:
+                              ok = _context.sent;
+                              window.location.reload();
+
+                            case 4:
+                            case "end":
+                              return _context.stop();
+                          }
+                        }
+                      }, _callee);
+                    }));
+
+                    return function (_x) {
+                      return _ref.apply(this, arguments);
+                    };
+                  }())["catch"](function (error) {
+                    console.log(error);
+                  });
+                } else {}
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    changeStatus: function changeStatus(id) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var ok;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return _this3.$refs.confirmDialogue.show({
+                  title: 'Change rule status',
+                  message: "Are you sure, you want to change status for rule ".concat(id, " ?"),
+                  okButton: 'Change status'
+                });
+
+              case 2:
+                ok = _context4.sent;
+
+                if (ok) {
+                  axios__WEBPACK_IMPORTED_MODULE_1___default().post("./api/rules/changeStatus/".concat(id)).then( /*#__PURE__*/function () {
+                    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(response) {
+                      var ok;
+                      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+                        while (1) {
+                          switch (_context3.prev = _context3.next) {
+                            case 0:
+                              _context3.next = 2;
+                              return _this3.$refs.infoDialogue.show({
+                                title: 'Status changed',
+                                message: "Rule status successfully changed!",
+                                okButton: 'Ok'
+                              });
+
+                            case 2:
+                              ok = _context3.sent;
+                              window.location.reload();
+
+                            case 4:
+                            case "end":
+                              return _context3.stop();
+                          }
+                        }
+                      }, _callee3);
+                    }));
+
+                    return function (_x2) {
+                      return _ref2.apply(this, arguments);
+                    };
+                  }())["catch"](function (error) {
+                    console.log(error);
+                  });
+                } else {}
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    }
+  }
 });
 
 /***/ }),
@@ -20624,7 +20765,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: function onClick($event) {
         return $options.loadRules(eshop.id);
       }
-    }, " Change status ", 8
+    }, " Show rules ", 8
     /* PROPS */
     , _hoisted_4)])], 8
     /* PROPS */
@@ -21007,6 +21148,10 @@ var _hoisted_5 = {
 var _hoisted_6 = ["onClick"];
 var _hoisted_7 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_confirm_dialogue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("confirm-dialogue");
+
+  var _component_info_dialogue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("info-dialogue");
+
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("table", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.rules, function (rule) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       value: rule.id
@@ -21030,18 +21175,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       type: "submit",
       "class": "btn btn-primary",
       onClick: function onClick($event) {
-        return _ctx.changeStatus(rule.id);
+        return $options.changeStatus(rule.id);
       }
     }, " Change status ", 8
     /* PROPS */
     , _hoisted_6)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       "class": "btn btn-danger",
       onClick: function onClick($event) {
-        return _ctx.deleteRule(rule.id);
+        return $options.deleteRule(rule.id);
       }
     }, "Delete", 8
     /* PROPS */
-    , _hoisted_7)])], 8
+    , _hoisted_7)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_confirm_dialogue, {
+      ref: "confirmDialogue"
+    }, null, 512
+    /* NEED_PATCH */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info_dialogue, {
+      ref: "infoDialogue"
+    }, null, 512
+    /* NEED_PATCH */
+    )], 8
     /* PROPS */
     , _hoisted_3);
   }), 256

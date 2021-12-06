@@ -13,7 +13,7 @@
         <tr v-for="eshop in eshops" :value="eshop.id">
             <td>{{ eshop.id }}</td>
             <td>{{ eshop.name }}</td>
-            <td> <button type="submit" class="btn btn-primary" @click="loadRules(eshop.id)">  Change status </button> </td>
+            <td> <button type="submit" class="btn btn-primary" @click="loadRules(eshop.id)"> Show rules </button> </td>
         </tr>
 
 
