@@ -1,9 +1,21 @@
 <template>
 
-    <div class="text-center font-weight-bold text-secondary ">
-  Hello world, Welcome to the BEST courier rule definition system!
-    </div>
+    <div class="container-xl p-3">
 
+        <h2> Hello world, Welcome to the BEST courier rule definition system!</h2>
+
+        <div class="card border-primary mb-3 ">
+
+            <div class="card-header">
+                Nadpis
+            </div>
+
+            <div class="card-body">
+                <p class="card-text">text</p>
+            </div>
+
+        </div>
+    </div>
 </template>
 
 <script>

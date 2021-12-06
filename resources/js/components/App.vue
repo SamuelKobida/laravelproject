@@ -4,9 +4,7 @@
 
         <Header/>
         <router-view></router-view>
-        <div class="container">
-
-        </div>
+        <Footer/>
 
     </div>
 
@@ -14,13 +12,13 @@
 
 <script>
     import Header from "./Header";
+    import Footer from "./Footer";
 
 
     export default {
         components: {
-
             Header,
-
+            Footer
         }
     }
 </script>
