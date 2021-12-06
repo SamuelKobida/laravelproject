@@ -2,6 +2,7 @@ import Index from "./components/Index.vue";
 import AddRule from "./components/AddRule.vue";
 import Home from "./components/Home";
 import EshopList from "./components/EshopList";
+import Rules from "./components/Rules";
 
 let base_path = "/laravelproject/public/";
 
@@ -27,7 +28,12 @@ export const routes = [
         path: base_path + 'eshoplist',
         component: EshopList
     },
-
+    {
+        name: 'rules',
+        path: base_path + 'rules/:id',
+        component: Rules,
+        props: true
+    },
 ];
 
 

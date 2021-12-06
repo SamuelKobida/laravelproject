@@ -35,6 +35,7 @@ Route::get('/rules', [DataController::class,'getRules']);
 Route::get('/carriers/{id}', [DataController::class,'carriers']);
 Route::get('/specificCarriers/{id}', [DataController::class,'specificCarriers']);
 Route::get('/specificCarrierServices/{id}', [DataController::class,'specificCarrierServices']);
+Route::get('/specificRules/{id}', [DataController::class,'specificRules']);
 
 //MANAGIN RULES
 Route::post('/rulestore', [RulesController::class,'store']);
