@@ -1,9 +1,8 @@
 <template>
 
-    <div>
-        Vitaj na uzasnej last minute stranke :)
+    <div class="text-center font-weight-bold text-secondary ">
+  Hello world, Welcome to the BEST courier rule definition system!
     </div>
-
 
 </template>
 
