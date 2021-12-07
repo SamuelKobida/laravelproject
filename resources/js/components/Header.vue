@@ -26,6 +26,10 @@
                 <li >
                     <router-link :to="{ name: 'register' }" class="nav-link text-light font-weight-bold ">Register</router-link>
                 </li>
+                <li >
+                    <a class="nav-link text-light font-weight-bold " @click.prevent="logout">Logout</a>
+                </li>
+
             </div>
         </div>
     </nav>
@@ -50,12 +54,22 @@ export default {
         EshopList,
         Login,
         Register
-    }
+    },
+
+    methods:{
+        logout(){
+            axios.post('./api/logout').then(()=>{
+                this.$router.push({ name: "home"})
+            })
+        }
+    },
+
 }
 
 
-
 </script>
+
+
 
 <style scoped>
 

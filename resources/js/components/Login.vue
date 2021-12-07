@@ -26,9 +26,10 @@ export default {
     methods:{
          loginUser(){
              axios.post('./api/login', this.form).then(() =>{
-                 this.$router.push({ name: "view"});
+                 this.$router.push({ name: "home"});
              }).catch((error) =>{
-         this.errors = error.response.data.errors;
+                 console.log(error);
+         //this.errors = error.response.data.errors;
             })
          }
     }

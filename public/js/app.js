@@ -19975,6 +19975,17 @@ __webpack_require__.r(__webpack_exports__);
     EshopList: _EshopList__WEBPACK_IMPORTED_MODULE_3__["default"],
     Login: _Login__WEBPACK_IMPORTED_MODULE_4__["default"],
     Register: _Register__WEBPACK_IMPORTED_MODULE_5__["default"]
+  },
+  methods: {
+    logout: function logout() {
+      var _this = this;
+
+      axios.post('./api/logout').then(function () {
+        _this.$router.push({
+          name: "home"
+        });
+      });
+    }
   }
 });
 
@@ -20328,10 +20339,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('./api/login', this.form).then(function () {
         _this.$router.push({
-          name: "view"
+          name: "home"
         });
       })["catch"](function (error) {
-        _this.errors = error.response.data.errors;
+        console.log(error); //this.errors = error.response.data.errors;
       });
     }
   }
@@ -21115,7 +21126,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])])])]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "nav-link text-light font-weight-bold",
+    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.logout && $options.logout.apply($options, arguments);
+    }, ["prevent"]))
+  }, "Logout")])])])]);
 }
 
 /***/ }),
