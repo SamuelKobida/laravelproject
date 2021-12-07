@@ -1,18 +1,6 @@
 <template>
 
-    <footer class="text-right mt-3 border-top border-primary">
-
-        <ul class="list-group mr-2 list-group-flush">
-            <li>
-                Bc. Adrián Valko
-            </li>
-            <li>
-                Bc. Samuel Kobida
-            </li>
-            <li>
-                Bc. Ján Hudec
-            </li>
-        </ul>
+    <footer class="mt-3">
 
         <div class="text-center bg-primary text-white">
             Systém pre definovanie kuriérskych pravidiel
@@ -28,10 +16,8 @@
         name: "Footer",
         components: {
 
-        }
+        },
     }
-
-
 
 </script>
 
