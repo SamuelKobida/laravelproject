@@ -8,6 +8,7 @@
             <th scope="col">Value</th>
             <th scope="col">Priority</th>
             <th scope="col">eShop</th>
+            <th scope="col">Courier</th>
             <th scope="col">Service</th>
             <th scope="col">Subject</th>
             <th scope="col">Predicate</th>
@@ -25,6 +26,7 @@
             <td>{{ rule.name_value }}</td>
             <td>{{ rule.priority }}</td>
             <td>{{ rule.eshop }}</td>
+            <td>{{ rule.courier }}</td>
             <td>{{ rule.service }}</td>
             <td>{{ rule.subject }}</td>
             <td>{{ rule.predicate }}</td>
