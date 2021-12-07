@@ -1,24 +1,24 @@
 <template>
 
-    <div class="header">
-
-        <Header/>
-        <router-view></router-view>
-        <Footer/>
-
-    </div>
+    <Header/>
+    <router-view/>
+    <Footer/>
 
 </template>
 
 <script>
-    import Header from "./Header";
     import Footer from "./Footer";
+    import Login from "./Login";
+    import Register from "./Register";
+    import Header from "./Header";
 
 
     export default {
         components: {
             Header,
-            Footer
+            Footer,
+            Login,
+            Register
         }
     }
 </script>

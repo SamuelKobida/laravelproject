@@ -20,6 +20,12 @@
                 <li >
                     <router-link :to="{ name: 'eshoplist' }" class="nav-link text-light font-weight-bold">eShops</router-link>
                 </li>
+                <li >
+                    <router-link :to="{ name: 'login' }" class="nav-link text-light font-weight-bold border-left">Login</router-link>
+                </li>
+                <li >
+                    <router-link :to="{ name: 'register' }" class="nav-link text-light font-weight-bold ">Register</router-link>
+                </li>
             </div>
         </div>
     </nav>
@@ -32,6 +38,8 @@ import AddRule from "./AddRule";
 import Index from "./Index";
 import Home from "./Home";
 import EshopList from "./EshopList";
+import Login from "./Login";
+import Register from "./Register";
 
 export default {
     name: "Header",
@@ -39,7 +47,9 @@ export default {
         Home,
         AddRule,
         Index,
-        EshopList
+        EshopList,
+        Login,
+        Register
     }
 }
 
