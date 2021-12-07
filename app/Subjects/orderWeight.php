@@ -4,12 +4,13 @@
 namespace App\Subjects;
 
 
-class HowManyProducts extends Subject
+class orderWeight extends Subject
 {
     public function setValue($order){
         $array=json_decode($order,true);
-        $this->value=($array['products']);
+        $this->value=($array['weight']);
 
     }
 }
+
 

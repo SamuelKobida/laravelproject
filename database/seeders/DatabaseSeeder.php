@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Carrier_serviceSeeder::class);
         $this->call(PredicateSeeder::class);
         $this->call(SubjectSeeder::class);
+        $this->call(RulesSeeder::class);
     }
 }
