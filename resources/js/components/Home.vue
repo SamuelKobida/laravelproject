@@ -12,8 +12,16 @@
 
             <div class="card-body">
 
-                <tr v-for="rule in rules" :value="rule.pocet">
-                <p class="card-text">Number of rules: {{rule.pocet}}</p>
+                <tr v-for="rule in rules" :value="rule.pocetRules">
+                <p class="card-text">Number of rules: {{rule.pocetRules}}</p>
+                </tr>
+
+                <tr v-for="eshop in eshops" :value="eshop.pocetEshops">
+                    <p class="card-text">Number of eShops: {{eshop.pocetEshops}}</p>
+                </tr>
+
+                <tr v-for="courier in couriers" :value="courier.pocetCouriers">
+                    <p class="card-text">Number of couriers: {{courier.pocetCouriers}}</p>
                 </tr>
 
             </div>
@@ -27,7 +35,7 @@
             <div class="card border-primary mb-3 "> <!-- 2 -->
 
                 <div class="card-header">
-                        Time & Date
+                        Time & Date:
                 </div>
 
                 <div class="card-body">
@@ -69,7 +77,9 @@
 
         data() {
             return{
-                rules: []
+                rules: [],
+                couriers: [],
+                eshops: []
             }
         },
         mounted() {
@@ -80,6 +90,21 @@
             }).catch(function (error) {
                 console.log(error);
             });
+
+            axios.get("http://localhost/laravelproject/public/api/counteshops").then(response => {
+                this.eshops = response.data;
+                console.log(response.data);
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+            axios.get("http://localhost/laravelproject/public/api/countcouriers").then(response => {
+                this.couriers = response.data;
+                console.log(response.data);
+            }).catch(function (error) {
+                console.log(error);
+            });
+
         },
 
     }

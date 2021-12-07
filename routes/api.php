@@ -37,6 +37,8 @@ Route::get('/specificCarriers/{id}', [DataController::class,'specificCarriers'])
 Route::get('/specificCarrierServices/{id}', [DataController::class,'specificCarrierServices']);
 Route::get('/specificRules/{id}', [DataController::class,'specificRules']);
 Route::get('/countrules', [DataController::class,'countRules']);
+Route::get('/counteshops', [DataController::class,'countEshops']);
+Route::get('/countcouriers', [DataController::class,'countCouriers']);
 
 //MANAGIN RULES
 Route::post('/rulestore', [RulesController::class,'store']);

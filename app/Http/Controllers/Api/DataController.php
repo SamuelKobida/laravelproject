@@ -62,8 +62,18 @@ class DataController extends Controller
     }
 
     public function countRules(){
-        $rules = DB::select("SELECT COUNT(*) as pocet FROM `rules`");
+        $rules = DB::select("SELECT COUNT(*) as pocetRules FROM `rules`");
         return $rules;
+    }
+
+    public function countEshops(){
+        $eshops = DB::select("SELECT COUNT(*) as pocetEshops FROM `eshops`");
+        return $eshops;
+    }
+
+    public function countCouriers(){
+        $carriers = DB::select("SELECT COUNT(DISTINCT name) as pocetCouriers FROM `carriers`");
+        return $carriers;
     }
 
 }

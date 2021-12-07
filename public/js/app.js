@@ -19989,7 +19989,9 @@ __webpack_require__.r(__webpack_exports__);
   components: {},
   data: function data() {
     return {
-      rules: []
+      rules: [],
+      couriers: [],
+      eshops: []
     };
   },
   mounted: function mounted() {
@@ -19997,6 +19999,18 @@ __webpack_require__.r(__webpack_exports__);
 
     axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/countrules").then(function (response) {
       _this.rules = response.data;
+      console.log(response.data);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/counteshops").then(function (response) {
+      _this.eshops = response.data;
+      console.log(response.data);
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://localhost/laravelproject/public/api/countcouriers").then(function (response) {
+      _this.couriers = response.data;
       console.log(response.data);
     })["catch"](function (error) {
       console.log(error);
@@ -21029,21 +21043,49 @@ var _hoisted_6 = ["value"];
 var _hoisted_7 = {
   "class": "card-text"
 };
+var _hoisted_8 = ["value"];
+var _hoisted_9 = {
+  "class": "card-text"
+};
+var _hoisted_10 = ["value"];
+var _hoisted_11 = {
+  "class": "card-text"
+};
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col\"><div class=\"card border-primary mb-3\"><!-- 2 --><div class=\"card-header\"> Time &amp; Date </div><div class=\"card-body\"><p class=\"card-text timeanddate\">Tuesday 6.4.1944 06:30:13</p></div></div></div><div class=\"col\"><div class=\"card border-primary mb-3\"><!-- 3 --><div class=\"card-header\"> Authors: </div><div class=\"card-body\"><p class=\"card-text\">Bc. Adrián Valko</p><p class=\"card-text\">Bc. Samuel Kobida</p><p class=\"card-text\">Bc. Ján Hudec</p></div></div></div></div>", 1);
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row\"><div class=\"col\"><div class=\"card border-primary mb-3\"><!-- 2 --><div class=\"card-header\"> Time &amp; Date: </div><div class=\"card-body\"><p class=\"card-text timeanddate\">Tuesday 6.4.1944 06:30:13</p></div></div></div><div class=\"col\"><div class=\"card border-primary mb-3\"><!-- 3 --><div class=\"card-header\"> Authors: </div><div class=\"card-body\"><p class=\"card-text\">Bc. Adrián Valko</p><p class=\"card-text\">Bc. Samuel Kobida</p><p class=\"card-text\">Bc. Ján Hudec</p></div></div></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 1 "), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.rules, function (rule) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
-      value: rule.pocet
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, "Number of rules: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.pocet), 1
+      value: rule.pocetRules
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, "Number of rules: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.pocetRules), 1
     /* TEXT */
     )], 8
     /* PROPS */
     , _hoisted_6);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])]), _hoisted_8]);
+  )), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.eshops, function (eshop) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      value: eshop.pocetEshops
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_9, "Number of eShops: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(eshop.pocetEshops), 1
+    /* TEXT */
+    )], 8
+    /* PROPS */
+    , _hoisted_8);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  )), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.couriers, function (courier) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      value: courier.pocetCouriers
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, "Number of couriers: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(courier.pocetCouriers), 1
+    /* TEXT */
+    )], 8
+    /* PROPS */
+    , _hoisted_10);
+  }), 256
+  /* UNKEYED_FRAGMENT */
+  ))])]), _hoisted_12]);
 }
 
 /***/ }),
