@@ -1,30 +1,28 @@
 <template>
 
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-primary">
 
-        <nav class="navbar sticky-top navbar-expand-lg bg-primary"  >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <div class="collapse navbar-collapse container-fluid" >
-
-                    <ul class="navbar-nav ">
-
-                        <li >
-                            <router-link :to="{  name: 'home' }" class="nav-link text-light font-weight-bold">Home</router-link>
-                        </li>
-                        <li >
-                            <router-link :to="{  name: 'index' }" class="nav-link text-light font-weight-bold">Rules</router-link>
-                        </li>
-                        <li >
-                            <router-link :to="{ name: 'addrule' }" class="nav-link text-light font-weight-bold">AddRule</router-link>
-                        </li>
-                        <li >
-                            <router-link :to="{ name: 'eshoplist' }" class="nav-link text-light font-weight-bold">eShops</router-link>
-                        </li>
-
-                    </ul>
-                </div>
-        </nav>
-
-
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <li >
+                    <router-link :to="{  name: 'home' }" class="nav-link text-light font-weight-bold">Home</router-link>
+                </li>
+                <li >
+                    <router-link :to="{  name: 'index' }" class="nav-link text-light font-weight-bold">Rules</router-link>
+                </li>
+                <li >
+                    <router-link :to="{ name: 'addrule' }" class="nav-link text-light font-weight-bold">AddRule</router-link>
+                </li>
+                <li >
+                    <router-link :to="{ name: 'eshoplist' }" class="nav-link text-light font-weight-bold">eShops</router-link>
+                </li>
+            </div>
+        </div>
+    </nav>
 
 </template>
 

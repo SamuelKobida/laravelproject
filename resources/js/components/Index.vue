@@ -9,8 +9,8 @@
             <th scope="col">Priority</th>
             <th scope="col">eShop</th>
             <th scope="col">Service</th>
-            <th scope="col">Predicate</th>
             <th scope="col">Subject</th>
+            <th scope="col">Predicate</th>
             <th scope="col">Status</th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -26,8 +26,8 @@
             <td>{{ rule.priority }}</td>
             <td>{{ rule.eshop }}</td>
             <td>{{ rule.service }}</td>
-            <td>{{ rule.predicate }}</td>
             <td>{{ rule.subject }}</td>
+            <td>{{ rule.predicate }}</td>
             <td class="text-success" v-if="rule.isActive">Active</td>
             <td class="text-danger" v-else>Inactive</td>
 
