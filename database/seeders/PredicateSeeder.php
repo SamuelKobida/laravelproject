@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Predicates\IsEqual;
+use App\Predicates\Equal;
 use App\Predicates\Less;
 use App\Predicates\More;
 use Illuminate\Database\Seeder;
