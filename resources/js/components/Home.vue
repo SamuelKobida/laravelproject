@@ -7,11 +7,15 @@
         <div class="card border-primary mb-3 mt-3 "> <!-- 1 -->
 
             <div class="card-header">
-                Informations:
+                Database informations:
             </div>
 
             <div class="card-body">
-                <p class="card-text">text</p>
+
+                <tr v-for="rule in rules" :value="rule.pocet">
+                <p class="card-text">Number of rules: {{rule.pocet}}</p>
+                </tr>
+
             </div>
         </div>
 
@@ -56,10 +60,28 @@
 
 <script>
 
+    import axios from "axios";
+
     export default {
         name: "Home",
         components: {
         },
+
+        data() {
+            return{
+                rules: []
+            }
+        },
+        mounted() {
+
+            axios.get("http://localhost/laravelproject/public/api/countrules").then(response => {
+                this.rules = response.data;
+                console.log(response.data);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+
     }
 
     import $ from 'jquery';

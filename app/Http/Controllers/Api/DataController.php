@@ -61,5 +61,9 @@ class DataController extends Controller
         return $rules;
     }
 
+    public function countRules(){
+        $rules = DB::select("SELECT COUNT(*) as pocet FROM `rules`");
+        return $rules;
+    }
 
 }
