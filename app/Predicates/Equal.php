@@ -4,7 +4,7 @@
 namespace App\Predicates;
 
 
-class IsEqual
+class Equal
 {
 public function compare($value,$ruleValue){
     if ($value === $ruleValue){

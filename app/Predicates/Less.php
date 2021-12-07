@@ -4,7 +4,7 @@
 namespace App\Predicates;
 
 
-class LessProducts
+class Less
 {
     public function compare($value,$ruleValue){
         if ($value <= $ruleValue){
