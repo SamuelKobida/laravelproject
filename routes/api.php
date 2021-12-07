@@ -3,8 +3,9 @@
 use App\Http\Controllers\Api\DataController;
 use App\Http\Controllers\Api\RulesController;
 use App\Http\Controllers\Api\ResolveController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -45,9 +46,10 @@ Route::post('/rulestore', [RulesController::class,'store']);
 Route::delete('/rules/delete/{id}', [RulesController::class, 'delete']);
 Route::post('/rules/changeStatus/{id}', [RulesController::class,'changeStatus']);
 
-//Auth::routes();
-
-//Route::middleware(['auth', 'is_admin'])->namespace('Admin')->prefix('admin')->group(function(){
-
-
-//});
+//AUTHENTICATION
+Route::middleware('auth:sanctum')->get('/authenticated', function () {
+    return true;
+});
+Route::post('register',  [RegisterController::class,'register']);
+Route::post('login',  [LoginController::class,'login']);
+Route::post('logout', [LoginController::class,'logout']);
