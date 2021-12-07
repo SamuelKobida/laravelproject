@@ -3,50 +3,50 @@
     <form @submit.prevent="submit">
 
         <div class="form-group">
-            <label>Rule name</label>
+            <label class="m-1" >Rule name</label>
             <input class="form-control" v-model="fields.name" placeholder="Enter name">
         </div>
 
         <div class="form-group">
-            <label>Value</label>
+            <label class="m-1" >Value</label>
             <input class="form-control" v-model="fields.value" placeholder="Enter value">
         </div>
 
         <div class="form-group">
-            <label>Priority</label>
+            <label class="m-1" >Priority</label>
             <input class="form-control" v-model="fields.priority" placeholder="Enter priority">
         </div>
 
         <div class="form-group">
-            <label>eShop</label>
+            <label class="m-1" >eShop</label>
             <select class="form-control" v-model="fields.eshop_id" @change="nacitajKurierov(this.fields.eshop_id)">
                 <option v-for="eshop in eshops" :value="eshop.id">   {{ eshop.name }}   </option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Courier</label>
+            <label class="m-1" >Courier</label>
             <select class="form-control"  v-model="fields.carrier_id" @change="nacitajKurierskeSluzby(this.fields.carrier_id)">
                 <option v-for="carrier in carriers" :value="carrier.id">  {{ carrier.name }}  </option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Service</label>
+            <label class="m-1" >Service</label>
             <select  class="form-control"  v-model="fields.carrier_service_id">
                 <option v-for="carrier_service in carrier_services" :value="carrier_service.id">   {{ carrier_service.name }}  </option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Subject</label>
+            <label class="m-1" >Subject</label>
             <select  class="form-control"  v-model="fields.subject_id">
                 <option v-for="subject in subjects" :value="subject.id">  {{ subject.name }}  </option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Predicate</label>
+            <label class="m-1" >Predicate</label>
             <select  class="form-control"  v-model="fields.predicate_id">
                 <option v-for="predicate in predicates" :value="predicate.id">  {{ predicate.name }}   </option>
             </select>

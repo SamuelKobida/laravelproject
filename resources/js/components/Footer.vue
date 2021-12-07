@@ -14,7 +14,7 @@
             </li>
         </ul>
 
-        <div class="text-center p-1 bg-primary text-white">
+        <div class="text-center bg-primary text-white">
             Systém pre definovanie kuriérskych pravidiel
         </div>
 
