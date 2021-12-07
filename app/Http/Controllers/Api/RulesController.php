@@ -10,12 +10,12 @@ use Illuminate\Http\Request;
 class RulesController extends Controller
 {
 
-    public function store(Request $request){
-        $rule=Rule::create($request->all());
+    public function store(Request $request)
+    {
+        $rule = Rule::create($request->all());
         $rule->save();
         return $rule;
     }
-
 
 
     public function delete($id)
@@ -23,7 +23,7 @@ class RulesController extends Controller
         $rule = Rule::findOrFail($id);
         $rule->delete();
 
-         return $rule;
+        return $rule;
     }
 
     public function changeStatus($id)

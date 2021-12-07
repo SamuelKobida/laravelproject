@@ -18,7 +18,7 @@ class RulesSeeder extends Seeder
     public function run()
     {
         DB::table('rules')->insert([
-            'name' => 'Bratislava zaklad',
+            'name' => 'Bratislava default',
             'value' => 'Bratislava',
             'priority' => '100',
             'carrier_service_id' => '1',

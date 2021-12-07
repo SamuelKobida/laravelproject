@@ -32,14 +32,14 @@ class ResolveController extends Controller
                     $compareResult = $predicate->compare($subject->value, $ruleValue);
 
                     if ($compareResult) {
-                        $selectedRule['rule'] = $rule->carrier_service->name;
+                        $selectedRule['service'] = $rule->carrier_service->name;
                         $selectedCourier['courier'] = $rule->carrier_service->carrier_id;
                         break;
                     }
                 }
             }
         }
-        return response()->json($selectedCourier+$selectedRule);
+        return response()->json($selectedCourier + $selectedRule);
 
     }
 
