@@ -15,6 +15,7 @@
             <td>{{ eshop.name }}</td>
             <td> <button type="submit" class="btn btn-primary" @click="loadRules(eshop.id)"> Show rules </button> </td>
         </tr>
+        <info-dialogue ref="infoDialogue"></info-dialogue>
 
 
         </tbody>
@@ -35,7 +36,8 @@ export default {
 
     data() {
         return{
-            eshops: []
+            eshops: [],
+            rules: []
         }
     },
     mounted() {
@@ -50,9 +52,22 @@ export default {
 
     methods: {
         loadRules($id) {
-            this.$router.push({ name: 'rules', params: { id: $id }})
+            axios.get("http://localhost/laravelproject/public/api/specificRules/" + $id).then(response => {
+                this.rules = response.data;
+                if(this.rules.length !== 0) {
+                    this.$router.push({ name: 'rules', params: { id: $id }})
+                } else {
+                    this.$refs.infoDialogue.show({
+                        title: 'No rules found',
+                        message: `There are no rules available for this eshop `,
+                        okButton: 'Ok',
+                    })
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
         }
-    }
 
 }
 </script>
