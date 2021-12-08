@@ -2,8 +2,7 @@
 
     <h1>Register an account</h1><br/>
 
-    <label for="name">Name</label>
-    <span v-if="errors.name">{{ errors.name[0] }}</span><br/>
+    <label for="name">Name</label><br/>
     <input placeholder="Name" type="text" v-model="form.name"><br/>
 
     <label for="email">Your e-mail</label><br/>
@@ -16,10 +15,14 @@
     <input placeholder="Confirm Password" type="password" v-model="form.password_confirmation" name="password_confirmation"><br/>
 
     <button @click.prevent="saveForm" type="submit">Register</button>
+    <info-dialogue ref="infoDialogue"></info-dialogue>
 
 </template>
 <script>
+import InfoDialogue from "./InfoDialogue";
+
 export default {
+    components: {InfoDialogue},
     data(){
         return{
             form:{
@@ -33,10 +36,26 @@ export default {
     },
     methods:{
         saveForm(){
+            let sprava = "";
             axios.post('./api/register', this.form).then(() =>{
                 console.log('saved');
             }).catch((error) =>{
                 this.errors = error.response.data.errors;
+                if(this.errors.name) {
+                    sprava = sprava + this.errors.name + "\n"
+                }
+                if(this.errors.password) {
+                    sprava = sprava + this.errors.password + "\n"
+                }
+                if(this.errors.email) {
+                    sprava = sprava + this.errors.email + "\n"
+                }
+                sprava = sprava.replace(',', '\n');
+                this.$refs.infoDialogue.show({
+                    title: '',
+                    message: sprava,
+                    okButton: 'Ok',
+                })
             })
         }
     }
