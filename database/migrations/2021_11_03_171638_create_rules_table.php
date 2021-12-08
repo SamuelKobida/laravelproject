@@ -22,6 +22,7 @@ class CreateRulesTable extends Migration
             $table->unsignedBigInteger('eshop_id');
             $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('predicate_id');
+            $table->unsignedBigInteger('parentrule_id')->nullable();
             $table->timestamps();
             $table->boolean('isActive');
         });

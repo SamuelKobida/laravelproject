@@ -52,6 +52,13 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label class="m-1" >Parent rule</label>
+            <select  class="form-control"  v-model="fields.parentrule_id">
+                <option v-for="parentrule in parentrules" :value="parentrule.id">  {{ parentrule.value }}   </option>
+            </select>
+        </div>
+
 
         <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
         <confirm-dialogue ref="confirmDialogue"></confirm-dialogue>
@@ -76,13 +83,14 @@ export default {
 
     data() {
         return {
-            /// Loading to AddRule
+            /// Loading to AddRule(CHOICES)
             predicates: [],
             subjects: [],
             carrier_services: [],
             eshops: [],
             carriers: [],
-            /// Sending to RulesController
+            parentrules: [],
+            /// Sending (POST-FORM) to RulesController
             fields: {
                 name: '',
                 value: '',
@@ -91,6 +99,7 @@ export default {
                 subject_id: '',
                 carrier_service_id: '',
                 carrier_id: '',
+                parentrule_id:'',
                 eshop_id: '',
                 isActive: '1',
             }
@@ -100,8 +109,9 @@ export default {
     mounted() {
 
         this.loadEshops();
-        this.loadSubjects()
-        this.loadPredicates()
+        this.loadSubjects();
+        this.loadPredicates();
+        this.loadParentrules();
 
     },
     methods: {
@@ -122,14 +132,6 @@ export default {
             });
         },
 
-        loadCarrier_services: function () {
-            axios.get("http://localhost/laravelproject/public/api/carrier_services").then(response => {
-                this.carrier_services = response.data;
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-
         loadEshops: function () {
             this.eshops = ""
             this.carriers = ""
@@ -141,9 +143,10 @@ export default {
             });
         },
 
-        loadCarriers: function () {
-            axios.get("http://localhost/laravelproject/public/api/carriers").then(response => {
-                this.carriers = response.data;
+        loadParentrules: function () {
+            axios.get("http://localhost/laravelproject/public/api/specificParentrules").then(response => {
+                console.log(response.data);
+                this.parentrules = response.data;
             }).catch(function (error) {
                 console.log(error);
             });

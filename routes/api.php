@@ -27,16 +27,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //POSTMAN
 Route::post('/resolve', [ResolveController::class,'resolve']);
 
-//GETTING DATA FROM LARAVEL
+//GETTING DATA FROM LARAVEL-ADDRULE CHOICES
 Route::get('/subjects', [DataController::class,'subjects']);
 Route::get('/predicates', [DataController::class,'predicates']);
 Route::get('/eshops', [DataController::class,'eshops']);
-Route::get('/carrier_services', [DataController::class,'carrier_services']);
-Route::get('/rules', [DataController::class,'getRules']);
-Route::get('/carriers/{id}', [DataController::class,'carriers']);
+Route::get('/specificParentrules', [DataController::class,'specificParentRules']);
 Route::get('/specificCarriers/{id}', [DataController::class,'specificCarriers']);
 Route::get('/specificCarrierServices/{id}', [DataController::class,'specificCarrierServices']);
+
+//GETTING DATA FROM LARAVEL-INDEX,INDEX FOR ESHOP
+Route::get('/rules', [DataController::class,'getRules']);
 Route::get('/specificRules/{id}', [DataController::class,'specificRules']);
+
+//GETTING DATA FROM LARAVEL-HOME
 Route::get('/countrules', [DataController::class,'countRules']);
 Route::get('/counteshops', [DataController::class,'countEshops']);
 Route::get('/countcouriers', [DataController::class,'countCouriers']);
