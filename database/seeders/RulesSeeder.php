@@ -25,19 +25,21 @@ class RulesSeeder extends Seeder
             'eshop_id' => '1',
             'subject_id' => '1',
             'predicate_id' => '1',
+            'parentrule_id' => null,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'isActive' => '1'
         ]);
 
         DB::table('rules')->insert([
-            'name' => 'Alza Premium Weight',
+            'name' => 'Bratislava Weight+',
             'value' => '50',
             'priority' => '10',
             'carrier_service_id' => '26',
             'eshop_id' => '1',
             'subject_id' => '4',
             'predicate_id' => '3',
+            'parentrule_id' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'isActive' => '1'

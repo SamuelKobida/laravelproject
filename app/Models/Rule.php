@@ -17,6 +17,7 @@ class Rule extends Model
         'eshop_id',
         'subject_id',
         'predicate_id',
+        'parentrule_id',
         'created_at',
         'updated_at',
         'isActive'

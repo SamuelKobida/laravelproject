@@ -12,6 +12,7 @@
             <th scope="col">Service</th>
             <th scope="col">Subject</th>
             <th scope="col">Predicate</th>
+            <th scope="col">Parent Rule</th>
             <th scope="col">Status</th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -30,6 +31,7 @@
             <td>{{ rule.service }}</td>
             <td>{{ rule.subject }}</td>
             <td>{{ rule.predicate }}</td>
+            <td>{{ rule.parentrule }}</td>
             <td class="text-success" v-if="rule.isActive">Active</td>
             <td class="text-danger" v-else>Inactive</td>
 
