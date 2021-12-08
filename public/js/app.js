@@ -19595,6 +19595,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificParentrules").then(function (response) {
+        console.log(response.data);
         _this4.parentrules = response.data;
       })["catch"](function (error) {
         console.log(error);
@@ -20886,7 +20887,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.parentrules, function (parentrule) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       value: parentrule.id
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parentrule.name), 9
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parentrule.value), 9
     /* TEXT, PROPS */
     , _hoisted_24);
   }), 256
@@ -21776,6 +21777,8 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   scope: "col"
 }, "Predicate"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
+}, "Parent rule"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
 }, "Status"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
@@ -21820,6 +21823,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.subject), 1
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.predicate), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.parentrule), 1
     /* TEXT */
     ), rule.isActive ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_4, "Active")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", _hoisted_5, "Inactive")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       type: "submit",
@@ -26429,7 +26434,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* css class for the transition */\n.fade-enter-active[data-v-0aa0398c],\r\n.fade-leave-active[data-v-0aa0398c] {\r\n    transition: opacity 0.3s;\n}\n.fade-enter[data-v-0aa0398c],\r\n.fade-leave-to[data-v-0aa0398c] {\r\n    opacity: 0;\n}\n.popup-modal[data-v-0aa0398c] {\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    padding: 0.5rem;\r\n    display: flex;\r\n    align-items: center;\r\n    z-index: 1;\n}\n.window[data-v-0aa0398c] {\r\n    background: #fff;\r\n    border-radius: 5px;\r\n    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);\r\n    max-width: 480px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    padding: 1rem;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* css class for the transition */\n.fade-enter-active[data-v-0aa0398c],\n.fade-leave-active[data-v-0aa0398c] {\n    transition: opacity 0.3s;\n}\n.fade-enter[data-v-0aa0398c],\n.fade-leave-to[data-v-0aa0398c] {\n    opacity: 0;\n}\n.popup-modal[data-v-0aa0398c] {\n    background-color: rgba(0, 0, 0, 0.5);\n    position: fixed;\n    top: 0;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 0.5rem;\n    display: flex;\n    align-items: center;\n    z-index: 1;\n}\n.window[data-v-0aa0398c] {\n    background: #fff;\n    border-radius: 5px;\n    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);\n    max-width: 480px;\n    margin-left: auto;\n    margin-right: auto;\n    padding: 1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

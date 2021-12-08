@@ -55,7 +55,7 @@
         <div class="form-group">
             <label class="m-1" >Parent rule</label>
             <select  class="form-control"  v-model="fields.parentrule_id">
-                <option v-for="parentrule in parentrules" :value="parentrule.id">  {{ parentrule.name }}   </option>
+                <option v-for="parentrule in parentrules" :value="parentrule.id">  {{ parentrule.value }}   </option>
             </select>
         </div>
 
@@ -108,10 +108,10 @@ export default {
     },
     mounted() {
 
-        this.loadEshops()
-        this.loadSubjects()
-        this.loadPredicates()
-        this.loadParentrules()
+        this.loadEshops();
+        this.loadSubjects();
+        this.loadPredicates();
+        this.loadParentrules();
 
     },
     methods: {
@@ -145,6 +145,7 @@ export default {
 
         loadParentrules: function () {
             axios.get("http://localhost/laravelproject/public/api/specificParentrules").then(response => {
+                console.log(response.data);
                 this.parentrules = response.data;
             }).catch(function (error) {
                 console.log(error);
