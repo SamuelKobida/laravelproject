@@ -152,56 +152,36 @@ export default {
             });
         },
 
-        testicek() {
-            let testicek = ""
+        inputTest() {
             let sprava = ""
             if (this.fields.name.length < 1) {
                 sprava = sprava + `'Rule name' cannot be empty!\n`
-            } else {
-                testicek = testicek + "j"
             }
             if (this.fields.value.length < 1) {
                 sprava = sprava + `'Value' cannot be empty!\n`
-            } else {
-                testicek = testicek + "e"
             }
             if (this.fields.priority % 1 !== 0) {
                 sprava = sprava + `'Priority' must be integer!\n`
-            } else {
-                testicek = testicek + "t"
             }
             if (this.fields.priority <= 0) {
                 sprava = sprava + `'Priority' must be more than 0!\n`
-            } else {
-                testicek = testicek + "o"
             }
             if (!this.fields.eshop_id) {
                 sprava = sprava + `'eShop' was not selected!\n`
-            } else {
-                testicek = testicek + "o"
             }
             if (!this.fields.carrier_id) {
                 sprava = sprava + `'Courier' was not selected!\n`
-            } else {
-                testicek = testicek + "k"
             }
             if (!this.fields.carrier_service_id) {
                 sprava = sprava + `'Service' was not selected!\n`
-            } else {
-                testicek = testicek + "k"
             }
             if (!this.fields.subject_id) {
                 sprava = sprava + `'Subject' was not selected!\n`
-            } else {
-                testicek = testicek + ":"
             }
             if (!this.fields.predicate_id) {
                 sprava = sprava + `'Predicate' was not selected!\n`
-            } else {
-                testicek = testicek + ")"
             }
-            if (testicek === "jetookk:)") {
-                console.log(testicek)
+            if (sprava === "") {
                 return true
             } else {
                 this.$refs.infoDialogue.show({
@@ -214,7 +194,7 @@ export default {
         },
 
         async submit() {
-            if (this.testicek()) {
+            if (this.inputTest()) {
                 const ok = await this.$refs.confirmDialogue.show({
                     title: 'Submit rule',
                     message: `Are you sure, you want to submit new rule?`,
