@@ -65,7 +65,7 @@ export default {
         logout(){
             axios.post('./api/logout').then(()=>{
                 this.$router.push({ name: "home"})
-                window.location.reload()
+                this.checklogin = 0
             })
         }
     },

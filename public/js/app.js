@@ -19982,7 +19982,7 @@ __webpack_require__.r(__webpack_exports__);
           name: "home"
         });
 
-        window.location.reload();
+        _this.checklogin = 0;
       });
     }
   },
