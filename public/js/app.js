@@ -19640,6 +19640,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sprava = sprava + "'Predicate' was not selected!\n";
       }
 
+      if (!this.fields.parentrule_id) {
+        sprava = sprava + "'Parent rule' was not selected!\n";
+      }
+
       if (sprava === "") {
         return true;
       } else {
