@@ -20131,6 +20131,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: "Index",
   data: function data() {
     return {
+      filter: "",
       rules: []
     };
   },
@@ -20144,9 +20145,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       console.log(error);
     });
   },
+  computed: {
+    filteredRows: function filteredRows() {
+      var _this2 = this;
+
+      return this.rules.filter(function (row) {
+        var name = row.name.toString().toLowerCase();
+        var name_value = row.name_value.toString().toLowerCase();
+        var priority = row.priority.toString().toLowerCase();
+        var eshop = row.eshop.toString().toLowerCase();
+        var courier = row.courier.toString().toLowerCase();
+        var service = row.service.toString().toLowerCase();
+        var subject = row.subject.toString().toLowerCase();
+        var predicate = row.predicate.toString().toLowerCase();
+
+        var searchTerm = _this2.filter.toLowerCase();
+
+        return name.includes(searchTerm) || name_value.includes(searchTerm) || priority.includes(searchTerm) || eshop.includes(searchTerm) || courier.includes(searchTerm) || service.includes(searchTerm) || subject.includes(searchTerm) || predicate.includes(searchTerm);
+      });
+    }
+  },
   methods: {
     deleteRule: function deleteRule(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var ok;
@@ -20155,7 +20176,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _this2.$refs.confirmDialogue.show({
+                return _this3.$refs.confirmDialogue.show({
                   title: 'Delete rule',
                   message: "Are you sure, you want to delete rule ".concat(id, " ?"),
                   okButton: 'Delete rule'
@@ -20173,7 +20194,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           switch (_context.prev = _context.next) {
                             case 0:
                               _context.next = 2;
-                              return _this2.$refs.infoDialogue.show({
+                              return _this3.$refs.infoDialogue.show({
                                 title: 'Delete rule',
                                 message: "Rule successfully deleted! ",
                                 okButton: 'Ok'
@@ -20208,7 +20229,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     changeStatus: function changeStatus(id) {
-      var _this3 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
         var ok;
@@ -20217,7 +20238,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context4.prev = _context4.next) {
               case 0:
                 _context4.next = 2;
-                return _this3.$refs.confirmDialogue.show({
+                return _this4.$refs.confirmDialogue.show({
                   title: 'Change rule status',
                   message: "Are you sure, you want to change status for rule ".concat(id, " ?"),
                   okButton: 'Change status'
@@ -20235,7 +20256,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           switch (_context3.prev = _context3.next) {
                             case 0:
                               _context3.next = 2;
-                              return _this3.$refs.infoDialogue.show({
+                              return _this4.$refs.infoDialogue.show({
                                 title: 'Status changed',
                                 message: "Rule status successfully changed!",
                                 okButton: 'Ok'
@@ -21420,7 +21441,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_info_dialogue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("info-dialogue");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.rules, function (rule) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRows, function (rule) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       value: rule.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.id), 1
@@ -21471,7 +21492,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_5);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])])])]);
+  ))])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    placeholder: "Filter rows",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.filter = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.filter]])]);
 }
 
 /***/ }),
