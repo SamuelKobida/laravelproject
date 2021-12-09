@@ -1,21 +1,35 @@
 <template>
 
-    <h1>Register an account</h1><br/>
 
-    <label for="name">Name</label><br/>
-    <input placeholder="Name" type="text" v-model="form.name"><br/>
 
-    <label for="email">Your e-mail</label><br/>
-    <input placeholder="Email" type="email" v-model="form.email"><br/>
+    <div class=" container-sm p-3">
+        <div class="card border-primary ">
 
-    <label for="password">Password</label><br/>
-    <input placeholder="Password" type="password" v-model="form.password" name="password"><br/>
+            <div class="card-header">
+                Register:
+            </div>
 
-    <label for="confirm_password">Confirm Password</label><br/>
-    <input placeholder="Confirm Password" type="password" v-model="form.password_confirmation" name="password_confirmation"><br/>
+            <div class="card-body">
+                <label for="name">Name</label>
+                <input class="form-control" placeholder="Name" type="text" v-model="form.name"><br/>
 
-    <button @click.prevent="saveForm" type="submit">Register</button>
-    <info-dialogue ref="infoDialogue"></info-dialogue>
+                <label for="email">Your e-mail</label>
+                <input class="form-control" placeholder="Email" type="email" v-model="form.email"><br/>
+
+                <label for="password">Password</label>
+                <input class="form-control" placeholder="Password" type="password" v-model="form.password" name="password"><br/>
+
+                <label for="confirm_password">Confirm Password</label>
+                <input class="form-control" placeholder="Confirm Password" type="password" v-model="form.password_confirmation" name="password_confirmation"><br/>
+
+                <button class="btn btn-primary" @click.prevent="saveForm" type="submit">Register</button>
+                <info-dialogue ref="infoDialogue"></info-dialogue>
+
+
+            </div>
+        </div>
+    </div>
+
 
 </template>
 <script>

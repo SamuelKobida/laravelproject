@@ -31,7 +31,6 @@
 
         <div class="col">
 
-
             <div class="card border-primary mb-3 "> <!-- 2 -->
 
                 <div class="card-header">

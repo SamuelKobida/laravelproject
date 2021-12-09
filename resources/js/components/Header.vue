@@ -24,7 +24,7 @@
                     <router-link v-if="this.checklogin === 0" :to="{ name: 'login' }" class="nav-link text-light font-weight-bold border-left">Login</router-link>
                 </li>
                 <li >
-                    <a v-if="this.checklogin === 1" class="nav-link text-light font-weight-bold " @click.prevent="logout">Logout</a>
+                    <a v-if="this.checklogin === 1" class="nav-link text-light font-weight-bold border-left " @click.prevent="logout">Logout</a>
                 </li>
                 <li >
                     <router-link v-if="this.checklogin === 0" :to="{ name: 'register' }" class="nav-link text-light font-weight-bold ">Register</router-link>
