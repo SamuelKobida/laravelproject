@@ -75,7 +75,7 @@
 
         methods: {
             logout() {
-                axios.post('./api/logout').then(() => {
+                axios.post('http://localhost/laravelproject/public/api/logout').then(() => {
                     this.$router.push({name: "home"})
                     this.checklogin = 0
                 })

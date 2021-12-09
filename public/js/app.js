@@ -19981,7 +19981,7 @@ __webpack_require__.r(__webpack_exports__);
     logout: function logout() {
       var _this = this;
 
-      axios.post('./api/logout').then(function () {
+      axios.post('http://localhost/laravelproject/public/api/logout').then(function () {
         _this.$router.push({
           name: "home"
         });
