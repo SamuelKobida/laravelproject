@@ -43,7 +43,15 @@
             loginUser() {
                 let sprava = "";
                 axios.post('./api/login', this.form).then(() => {
+                    axios.get("http://localhost/laravelproject/public/api/authenticated/").then(() => {
                     this.$router.push({name: "index"});
+                    }).catch(() => {
+                        this.$refs.infoDialogue.show({
+                            title: '',
+                            message: "E-mail and/or password is incorrect. Please check your credentials and try again.",
+                            okButton: 'Ok',
+                        })
+                    })
                 }).catch((error) => {
                     this.errors = error.response.data.errors;
                     if (this.errors.email) {
