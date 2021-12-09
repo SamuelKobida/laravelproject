@@ -19,14 +19,14 @@
 
         <div class="form-group">
             <label class="m-1" >eShop</label>
-            <select class="form-control" v-model="fields.eshop_id" @change="nacitajKurierov(this.fields.eshop_id)">
+            <select class="form-control" v-model="fields.eshop_id" @change="loadCarriers(this.fields.eshop_id)">
                 <option v-for="eshop in eshops" :value="eshop.id">   {{ eshop.name }}   </option>
             </select>
         </div>
 
         <div class="form-group">
             <label class="m-1" >Courier</label>
-            <select class="form-control"  v-model="fields.carrier_id" @change="nacitajKurierskeSluzby(this.fields.carrier_id)">
+            <select class="form-control"  v-model="fields.carrier_id" @change="loadCarrierServices(this.fields.carrier_id)">
                 <option v-for="carrier in carriers" :value="carrier.id">  {{ carrier.name }}  </option>
             </select>
         </div>
@@ -152,56 +152,39 @@ export default {
             });
         },
 
-        testicek() {
-            let testicek = ""
+        inputTest() {
             let sprava = ""
             if (this.fields.name.length < 1) {
                 sprava = sprava + `'Rule name' cannot be empty!\n`
-            } else {
-                testicek = testicek + "j"
             }
             if (this.fields.value.length < 1) {
                 sprava = sprava + `'Value' cannot be empty!\n`
-            } else {
-                testicek = testicek + "e"
             }
             if (this.fields.priority % 1 !== 0) {
                 sprava = sprava + `'Priority' must be integer!\n`
-            } else {
-                testicek = testicek + "t"
             }
             if (this.fields.priority <= 0) {
                 sprava = sprava + `'Priority' must be more than 0!\n`
-            } else {
-                testicek = testicek + "o"
             }
             if (!this.fields.eshop_id) {
                 sprava = sprava + `'eShop' was not selected!\n`
-            } else {
-                testicek = testicek + "o"
             }
             if (!this.fields.carrier_id) {
                 sprava = sprava + `'Courier' was not selected!\n`
-            } else {
-                testicek = testicek + "k"
             }
             if (!this.fields.carrier_service_id) {
                 sprava = sprava + `'Service' was not selected!\n`
-            } else {
-                testicek = testicek + "k"
             }
             if (!this.fields.subject_id) {
                 sprava = sprava + `'Subject' was not selected!\n`
-            } else {
-                testicek = testicek + ":"
             }
             if (!this.fields.predicate_id) {
                 sprava = sprava + `'Predicate' was not selected!\n`
-            } else {
-                testicek = testicek + ")"
             }
-            if (testicek === "jetookk:)") {
-                console.log(testicek)
+            if (!this.fields.parentrule_id) {
+                sprava = sprava + `'Parent rule' was not selected!\n`
+            }
+            if (sprava === "") {
                 return true
             } else {
                 this.$refs.infoDialogue.show({
@@ -214,10 +197,10 @@ export default {
         },
 
         async submit() {
-            if (this.testicek()) {
+            if (this.inputTest()) {
                 const ok = await this.$refs.confirmDialogue.show({
                     title: 'Submit rule',
-                    message: `Are you sure, you want to submit new rule?`,
+                    message: `Are you sure you want to submit a new rule?`,
                     okButton: 'Submit rule',
                 })
                 if (ok) {
@@ -238,7 +221,7 @@ export default {
             }
         },
 
-        nacitajKurierov: function (x) {
+        loadCarriers: function (x) {
             this.carriers = ""
             this.fields.carrier_id = ""
             this.carrier_services = ""
@@ -250,7 +233,7 @@ export default {
             });
         },
 
-        nacitajKurierskeSluzby: function (x) {
+        loadCarrierServices: function (x) {
             this.carrier_services = ""
             this.fields.carrier_service_id = ""
             axios.get(`http://localhost/laravelproject/public/api/specificCarrierServices/${x}`).then(response => {
