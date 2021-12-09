@@ -19,14 +19,14 @@
 
         <div class="form-group">
             <label class="m-1" >eShop</label>
-            <select class="form-control" v-model="fields.eshop_id" @change="nacitajKurierov(this.fields.eshop_id)">
+            <select class="form-control" v-model="fields.eshop_id" @change="loadCarriers(this.fields.eshop_id)">
                 <option v-for="eshop in eshops" :value="eshop.id">   {{ eshop.name }}   </option>
             </select>
         </div>
 
         <div class="form-group">
             <label class="m-1" >Courier</label>
-            <select class="form-control"  v-model="fields.carrier_id" @change="nacitajKurierskeSluzby(this.fields.carrier_id)">
+            <select class="form-control"  v-model="fields.carrier_id" @change="loadCarrierServices(this.fields.carrier_id)">
                 <option v-for="carrier in carriers" :value="carrier.id">  {{ carrier.name }}  </option>
             </select>
         </div>
@@ -200,7 +200,7 @@ export default {
             if (this.inputTest()) {
                 const ok = await this.$refs.confirmDialogue.show({
                     title: 'Submit rule',
-                    message: `Are you sure, you want to submit new rule?`,
+                    message: `Are you sure you want to submit a new rule?`,
                     okButton: 'Submit rule',
                 })
                 if (ok) {
@@ -221,7 +221,7 @@ export default {
             }
         },
 
-        nacitajKurierov: function (x) {
+        loadCarriers: function (x) {
             this.carriers = ""
             this.fields.carrier_id = ""
             this.carrier_services = ""
@@ -233,7 +233,7 @@ export default {
             });
         },
 
-        nacitajKurierskeSluzby: function (x) {
+        loadCarrierServices: function (x) {
             this.carrier_services = ""
             this.fields.carrier_service_id = ""
             axios.get(`http://localhost/laravelproject/public/api/specificCarrierServices/${x}`).then(response => {

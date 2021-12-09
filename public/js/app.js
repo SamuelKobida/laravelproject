@@ -19672,7 +19672,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context2.next = 3;
                 return _this5.$refs.confirmDialogue.show({
                   title: 'Submit rule',
-                  message: "Are you sure, you want to submit new rule?",
+                  message: "Are you sure you want to submit a new rule?",
                   okButton: 'Submit rule'
                 });
 
@@ -19724,7 +19724,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    nacitajKurierov: function nacitajKurierov(x) {
+    loadCarriers: function loadCarriers(x) {
       var _this6 = this;
 
       this.carriers = "";
@@ -19737,7 +19737,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         console.log(error);
       });
     },
-    nacitajKurierskeSluzby: function nacitajKurierskeSluzby(x) {
+    loadCarrierServices: function loadCarrierServices(x) {
       var _this7 = this;
 
       this.carrier_services = "";
@@ -20815,7 +20815,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.fields.eshop_id = $event;
     }),
     onChange: _cache[4] || (_cache[4] = function ($event) {
-      return $options.nacitajKurierov(_this.fields.eshop_id);
+      return $options.loadCarriers(_this.fields.eshop_id);
     })
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.eshops, function (eshop) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
@@ -20833,7 +20833,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.fields.carrier_id = $event;
     }),
     onChange: _cache[6] || (_cache[6] = function ($event) {
-      return $options.nacitajKurierskeSluzby(_this.fields.carrier_id);
+      return $options.loadCarrierServices(_this.fields.carrier_id);
     })
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.carriers, function (carrier) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
