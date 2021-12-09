@@ -43,7 +43,7 @@
             loginUser() {
                 let sprava = "";
                 axios.post('./api/login', this.form).then(() => {
-                    this.$router.push({name: "home"});
+                    this.$router.push({name: "index"});
                 }).catch((error) => {
                     this.errors = error.response.data.errors;
                     if (this.errors.email) {

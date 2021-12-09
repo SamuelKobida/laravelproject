@@ -82,7 +82,7 @@
             }
         },
         watch: {
-            $route(to, from) {
+            $route() {
                 axios.get("http://localhost/laravelproject/public/api/authenticated/").then(() => {
                     this.checklogin = 1
                 }).catch(() => {
