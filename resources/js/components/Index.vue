@@ -17,7 +17,7 @@
                     <th scope="col">Predicate</th>
                     <th scope="col">Parent rule</th>
                     <th scope="col">Status</th>
-                    <th scope="col"></th>
+                    <th scope="col"><input type="text" placeholder="Filter rows"  v-model="filter" /></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -52,9 +52,7 @@
 
             </table>
         </div>
-        <input type="text"
-               placeholder="Filter rows"
-               v-model="filter" />
+
     </div>
 
 </template>
