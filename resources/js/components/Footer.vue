@@ -14,9 +14,7 @@
 
     export default {
         name: "Footer",
-        components: {
-
-        },
+        components: {},
     }
 
 </script>
