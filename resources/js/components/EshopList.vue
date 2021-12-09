@@ -11,21 +11,23 @@
                     <th scope="col"></th>
                 </tr>
                 </thead>
-                <tbody>
 
+                <tbody>
                 <tr v-for="eshop in eshops" :value="eshop.id">
                     <td>{{ eshop.id }}</td>
                     <td>{{ eshop.name }}</td>
                     <td>
-                        <button type="submit" class="btn btn-primary" @click="loadRules(eshop.id)"> Show rules</button>
+                        <button type="submit" class="btn btn-primary float-right mr-4" @click="loadRules(eshop.id)">
+                            Show rules
+                        </button>
                     </td>
                 </tr>
                 <info-dialogue ref="infoDialogue"></info-dialogue>
-
-
                 </tbody>
+
             </table>
-            </div>
+
+        </div>
     </div>
 
 </template>
@@ -74,7 +76,6 @@
                 });
             },
         }
-
     }
 </script>
 

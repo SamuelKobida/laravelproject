@@ -9,22 +9,20 @@
             </div>
 
             <div class="card-body">
-
                 <label for="email">Email</label>
-                <input class="form-control"  placeholder="Email" type="email" v-model="form.email"> <br/>
+                <input class="form-control" placeholder="Email" type="email" v-model="form.email"> <br/>
 
                 <label for="password">Password</label>
-                <input class="form-control" placeholder="Password" type="password" v-model="form.password" name="password"> <br/>
+                <input class="form-control" placeholder="Password" type="password" v-model="form.password"
+                       name="password"> <br/>
 
                 <button class="btn btn-primary" @click.prevent="loginUser" type="submit">Login</button>
 
                 <info-dialogue ref="infoDialogue"></info-dialogue>
-
-
             </div>
+
         </div>
     </div>
-
 
 </template>
 <script>

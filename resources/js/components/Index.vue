@@ -2,57 +2,55 @@
 
     <div class=" container-fluid p-3">
         <div class="card border-primary ">
-                <table class="table table-responsive-lg ">
-                    <thead class="">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">Priority</th>
-                        <th scope="col">eShop</th>
-                        <th scope="col">Courier</th>
-                        <th scope="col">Service</th>
-                        <th scope="col">Subject</th>
-                        <th scope="col">Predicate</th>
-                        <th scope="col">Parent Rule</th>
-                        <th scope="col">Status</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
 
-                    </tr>
-                    </thead>
-                    <tbody>
+            <table class="table table-responsive-lg ">
+                <thead class="">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">eShop</th>
+                    <th scope="col">Courier</th>
+                    <th scope="col">Service</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Predicate</th>
+                    <th scope="col">Parent rule</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
 
-                    <tr v-for="rule in rules" :value="rule.id">
-                        <td>{{ rule.id }}</td>
-                        <td>{{ rule.name }}</td>
-                        <td>{{ rule.name_value }}</td>
-                        <td>{{ rule.priority }}</td>
-                        <td>{{ rule.eshop }}</td>
-                        <td>{{ rule.courier }}</td>
-                        <td>{{ rule.service }}</td>
-                        <td>{{ rule.subject }}</td>
-                        <td>{{ rule.predicate }}</td>
-                        <td>{{ rule.parentrule }}</td>
-                        <td class="text-success" v-if="rule.isActive">Active</td>
-                        <td class="text-danger" v-else>Inactive</td>
+                <tbody>
+                <tr v-for="rule in rules" :value="rule.id">
+                    <td>{{ rule.id }}</td>
+                    <td>{{ rule.name }}</td>
+                    <td>{{ rule.name_value }}</td>
+                    <td>{{ rule.priority }}</td>
+                    <td>{{ rule.eshop }}</td>
+                    <td>{{ rule.courier }}</td>
+                    <td>{{ rule.service }}</td>
+                    <td>{{ rule.subject }}</td>
+                    <td>{{ rule.predicate }}</td>
+                    <td>{{ rule.parentrule }}</td>
+                    <td class="text-success" v-if="rule.isActive">Active</td>
+                    <td class="text-danger" v-else>Inactive</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" @click="changeStatus(rule.id)"> Change
+                            status
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" @click="deleteRule(rule.id)">Delete</button>
+                    </td>
 
-                        <td>
-                            <button type="submit" class="btn btn-primary" @click="changeStatus(rule.id)"> Change
-                                status
-                            </button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger" @click="deleteRule(rule.id)">Delete</button>
-                        </td>
+                    <confirm-dialogue ref="confirmDialogue"></confirm-dialogue>
+                    <info-dialogue ref="infoDialogue"></info-dialogue>
+                </tr>
+                </tbody>
 
-                        <confirm-dialogue ref="confirmDialogue"></confirm-dialogue>
-                        <info-dialogue ref="infoDialogue"></info-dialogue>
-                    </tr>
-
-
-                    </tbody>
-                </table>
+            </table>
 
         </div>
     </div>

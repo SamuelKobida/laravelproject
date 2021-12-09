@@ -1,7 +1,8 @@
 <template>
 
-    <div class=" container-sm p-3">
+    <div class=" container-fluid p-3">
         <div class="card border-primary ">
+
             <table class="table table-responsive-lg ">
                 <thead>
                 <tr>
@@ -18,11 +19,10 @@
                     <th scope="col">Status</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-
                 </tr>
                 </thead>
-                <tbody>
 
+                <tbody>
                 <tr v-for="rule in rules" :value="rule.id">
                     <td>{{ rule.id }}</td>
                     <td>{{ rule.name }}</td>
@@ -36,7 +36,6 @@
                     <td>{{ rule.parentrule }}</td>
                     <td class="text-success" v-if="rule.isActive">Active</td>
                     <td class="text-danger" v-else>Inactive</td>
-
                     <td>
                         <button type="submit" class="btn btn-primary" @click="changeStatus(rule.id)"> Change status
                         </button>
@@ -48,9 +47,8 @@
                     <confirm-dialogue ref="confirmDialogue"></confirm-dialogue>
                     <info-dialogue ref="infoDialogue"></info-dialogue>
                 </tr>
-
-
                 </tbody>
+
             </table>
 
         </div>

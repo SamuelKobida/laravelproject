@@ -21067,11 +21067,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       type: "submit",
-      "class": "btn btn-primary",
+      "class": "btn btn-primary float-right mr-4",
       onClick: function onClick($event) {
         return $options.loadRules(eshop.id);
       }
-    }, " Show rules", 8
+    }, " Show rules ", 8
     /* PROPS */
     , _hoisted_6)])], 8
     /* PROPS */
@@ -21158,15 +21158,15 @@ var _hoisted_4 = {
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Home");
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Rules");
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Rules ");
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("AddRule");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("AddRule ");
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("eShops");
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("eShops ");
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Login");
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Login ");
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Register");
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Register ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
@@ -21386,7 +21386,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   scope: "col"
 }, "Predicate"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
-}, "Parent Rule"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+}, "Parent rule"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
 }, "Status"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
@@ -21795,7 +21795,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container-sm p-3"
+  "class": "container-fluid p-3"
 };
 var _hoisted_2 = {
   "class": "card border-primary"
@@ -26481,7 +26481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* css class for the transition */\n.fade-enter-active[data-v-0aa0398c],\r\n.fade-leave-active[data-v-0aa0398c] {\r\n    transition: opacity 0.3s;\n}\n.fade-enter[data-v-0aa0398c],\r\n.fade-leave-to[data-v-0aa0398c] {\r\n    opacity: 0;\n}\n.popup-modal[data-v-0aa0398c] {\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    padding: 0.5rem;\r\n    display: flex;\r\n    align-items: center;\r\n    z-index: 1;\n}\n.window[data-v-0aa0398c] {\r\n    background: #fff;\r\n    border-radius: 5px;\r\n    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);\r\n    max-width: 480px;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    padding: 1rem;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n    /* css class for the transition */\n.fade-enter-active[data-v-0aa0398c],\n    .fade-leave-active[data-v-0aa0398c] {\n        transition: opacity 0.3s;\n}\n.fade-enter[data-v-0aa0398c],\n    .fade-leave-to[data-v-0aa0398c] {\n        opacity: 0;\n}\n.popup-modal[data-v-0aa0398c] {\n        background-color: rgba(0, 0, 0, 0.5);\n        position: fixed;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        padding: 0.5rem;\n        display: flex;\n        align-items: center;\n        z-index: 1;\n}\n.window[data-v-0aa0398c] {\n        background: #fff;\n        border-radius: 5px;\n        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);\n        max-width: 480px;\n        margin-left: auto;\n        margin-right: auto;\n        padding: 1rem;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

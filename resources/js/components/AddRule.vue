@@ -1,4 +1,5 @@
 <template>
+
     <div class=" container-sm p-3">
         <div class="card border-primary ">
             <div class="card-body">
@@ -67,16 +68,16 @@
                         </select>
                     </div>
 
-
                     <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
                     <confirm-dialogue ref="confirmDialogue"></confirm-dialogue>
                     <info-dialogue ref="infoDialogue"></info-dialogue>
 
-
                 </form>
+
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -111,17 +112,15 @@
                     eshop_id: '',
                     isActive: '1',
                 }
-
             }
         },
         mounted() {
-
             this.loadEshops();
             this.loadSubjects();
             this.loadPredicates();
             this.loadParentrules();
-
         },
+
         methods: {
             loadPredicates: function () {
                 axios.get("http://localhost/laravelproject/public/api/predicates").then(response => {
