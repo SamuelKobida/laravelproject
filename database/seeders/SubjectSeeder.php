@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-
-use App\Subjects\HowManyProducts;
-use App\Subjects\IsCity;
+use App\Subjects\orderCity;
+use App\Subjects\orderProducts;
+use App\Subjects\orderSize;
+use App\Subjects\orderWeight;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -18,13 +19,24 @@ class SubjectSeeder extends Seeder
     public function run()
     {
         DB::table('subjects')->insert([
-            'name' => 'IsCity',
-            'class' => (IsCity::class),
+            'name' => 'orderCity',
+            'class' => (orderCity::class),
         ]);
 
         DB::table('subjects')->insert([
-            'name' => 'HowManyProducts',
-            'class' => (HowManyProducts::class),
+            'name' => 'orderProducts',
+            'class' => (orderProducts::class),
         ]);
+
+        DB::table('subjects')->insert([
+            'name' => 'orderSize',
+            'class' => (OrderSize::class),
+        ]);
+
+        DB::table('subjects')->insert([
+            'name' => 'orderWeight',
+            'class' => (orderWeight::class),
+        ]);
+
     }
 }

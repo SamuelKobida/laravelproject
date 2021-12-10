@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Predicates\IsEqual;
-use App\Predicates\LessProducts;
-use App\Predicates\MoreProducts;
+use App\Predicates\Equal;
+use App\Predicates\Less;
+use App\Predicates\More;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -19,18 +19,18 @@ class PredicateSeeder extends Seeder
     public function run()
     {
         DB::table('predicates')->insert([
-            'name' => 'IsEqual',
-            'class' => (IsEqual::class),
+            'name' => 'Equal',
+            'class' => (Equal::class),
         ]);
 
         DB::table('predicates')->insert([
-            'name' => 'LessProducts',
-            'class' => (LessProducts::class),
+            'name' => 'Less',
+            'class' => (Less::class),
         ]);
 
         DB::table('predicates')->insert([
-            'name' => 'MoreProducts',
-            'class' => (MoreProducts::class),
+            'name' => 'More',
+            'class' => (More::class),
         ]);
     }
 }
