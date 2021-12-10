@@ -17,13 +17,13 @@
                     <th scope="col">Predicate</th>
                     <th scope="col">Parent rule</th>
                     <th scope="col">Status</th>
-                    <th scope="col"></th>
+                    <th scope="col"><input type="text" placeholder="Filter rows"  v-model="filter" /></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <tr v-for="rule in rules" :value="rule.id">
+                <tr v-for="rule in filteredRows" :value="rule.id">
                     <td>{{ rule.id }}</td>
                     <td>{{ rule.name }}</td>
                     <td>{{ rule.name_value }}</td>
@@ -68,6 +68,7 @@
 
         data() {
             return {
+                filter: "",
                 rules: []
             }
         },
@@ -80,7 +81,29 @@
                 console.log(error);
             });
         },
-
+        computed: {
+            filteredRows() {
+                return this.rules.filter(row => {
+                    const name = row.name.toString().toLowerCase();
+                    const name_value = row.name_value.toString().toLowerCase();
+                    const priority = row.priority.toString().toLowerCase();
+                    const eshop = row.eshop.toString().toLowerCase();
+                    const courier = row.courier.toString().toLowerCase();
+                    const service = row.service.toString().toLowerCase();
+                    const subject = row.subject.toString().toLowerCase();
+                    const predicate = row.predicate.toString().toLowerCase();
+                    const searchTerm = this.filter.toLowerCase();
+                    return name.includes(searchTerm) ||
+                        name_value.includes(searchTerm) ||
+                        priority.includes(searchTerm) ||
+                        eshop.includes(searchTerm) ||
+                        courier.includes(searchTerm) ||
+                        service.includes(searchTerm) ||
+                        subject.includes(searchTerm) ||
+                        predicate.includes(searchTerm);
+                });
+            }
+        },
         methods: {
             async deleteRule(id) {
                 const ok = await this.$refs.confirmDialogue.show({

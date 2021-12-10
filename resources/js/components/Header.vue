@@ -18,7 +18,11 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link :to="{ name: 'addrule' }" class="nav-link text-light font-weight-bold">AddRule
+                    <router-link :to="{  name: 'parentrules' }" class="nav-link text-light font-weight-bold">Parent rules
+                    </router-link>
+                </li>
+                <li>
+                    <router-link :to="{ name: 'addrule' }" class="nav-link text-light font-weight-bold">Add a rule
                     </router-link>
                 </li>
                 <li>
@@ -31,7 +35,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <a v-if="this.checklogin === 1" class="nav-link text-light font-weight-bold border-left "
+                    <a style="cursor: pointer" v-if="this.checklogin === 1" class="nav-link text-light font-weight-bold border-left "
                        @click.prevent="logout">Logout</a>
                 </li>
                 <li>
@@ -55,6 +59,7 @@
     import EshopList from "./EshopList";
     import Login from "./Login";
     import Register from "./Register";
+    import ParentRules from "./ParentRules";
 
     export default {
         name: "Header",
@@ -64,7 +69,8 @@
             Index,
             EshopList,
             Login,
-            Register
+            Register,
+            ParentRules
         },
 
         data() {

@@ -5,6 +5,8 @@ import EshopList from "./components/EshopList";
 import Rules from "./components/Rules";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import ParentRules from "./components/ParentRules";
+import ChildRules from "./components/ChildRules";
 
 
 let base_path = "/laravelproject/public/";
@@ -87,7 +89,33 @@ export const routes = [
             })
         }
     },
+    {
+        name: 'parentrules',
+        path: base_path + 'parentRules',
+        component: ParentRules,
 
+        beforeEnter: (to, form, next) =>{
+            axios.get("http://localhost/laravelproject/public/api/authenticated/").then(()=>{
+                next()
+            }).catch(()=>{
+                return next({ name: 'login'})
+            })
+        }
+    },
+    {
+        name: 'childrules',
+        path: base_path + 'parentRules/:id',
+        component: ChildRules,
+        props: true,
+
+        beforeEnter: (to, form, next) =>{
+            axios.get("http://localhost/laravelproject/public/api/authenticated/").then(()=>{
+                next()
+            }).catch(()=>{
+                return next({ name: 'login'})
+            })
+        }
+    }
 
 ];
 
