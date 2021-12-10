@@ -118,7 +118,7 @@ export default {
                 } else {
                     this.$refs.infoDialogue.show({
                         title: 'No rules found',
-                        message: `There are no rules available for this eshop `,
+                        message: `There are no child rules available for this rule`,
                         okButton: 'Ok',
                     })
                 }

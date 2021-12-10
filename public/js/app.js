@@ -20706,7 +20706,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         } else {
           _this3.$refs.infoDialogue.show({
             title: 'No rules found',
-            message: "There are no rules available for this eshop ",
+            message: "There are no child rules available for this rule",
             okButton: 'Ok'
           });
         }
