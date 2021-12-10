@@ -35,7 +35,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <a v-if="this.checklogin === 1" class="nav-link text-light font-weight-bold border-left "
+                    <a style="cursor: pointer" v-if="this.checklogin === 1" class="nav-link text-light font-weight-bold border-left "
                        @click.prevent="logout">Logout</a>
                 </li>
                 <li>
