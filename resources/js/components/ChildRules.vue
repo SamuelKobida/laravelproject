@@ -17,7 +17,7 @@
                     <th scope="col">Predicate</th>
                     <th scope="col">Status</th>
                     <th scope="col"><input type="text" placeholder="Filter rows"  v-model="filter" /></th>
-                    <th scope="col"></th>
+                    <th scope="col"><button class="btn btn-primary" @click="back">Back</button></th>
                 </tr>
                 </thead>
 
@@ -103,6 +103,9 @@ export default {
         }
     },
     methods: {
+        back(){
+            this.$router.push({name: "parentrules"});
+        },
         async deleteRule(id) {
             const ok = await this.$refs.confirmDialogue.show({
                 title: 'Delete rule',

@@ -2,7 +2,7 @@
 
     <div class="container-xl p-3">
 
-        <h2> Hello world, Welcome to the BEST courier rule definition system!</h2>
+        <h2>Welcome!</h2>
 
         <div class="card border-primary mb-3 mt-3 "> <!-- 1 -->
 

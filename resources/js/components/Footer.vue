@@ -3,7 +3,7 @@
     <footer class="mt-3">
 
         <div class="text-center bg-primary text-white">
-            Systém pre definovanie kuriérskych pravidiel
+            Courier rule definition system ©ScrumTeamTwo
         </div>
 
     </footer>
