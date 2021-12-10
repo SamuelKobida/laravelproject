@@ -38,6 +38,8 @@ Route::get('/specificCarrierServices/{id}', [DataController::class,'specificCarr
 //GETTING DATA FROM LARAVEL-INDEX,INDEX FOR ESHOP
 Route::get('/rules', [DataController::class,'getRules']);
 Route::get('/specificRules/{id}', [DataController::class,'specificRules']);
+Route::get('/parentRules', [DataController::class,'getParentRules']);
+Route::get('/childRules/{id}', [DataController::class,'getChildRules']);
 
 //GETTING DATA FROM LARAVEL-HOME
 Route::get('/countrules', [DataController::class,'countRules']);
