@@ -49,10 +49,11 @@ class DataController extends Controller
         return $carrier_services_unfiltered->whereIn('carrier_id', [$id]);
     }
 
-    public function specificParentRules()
+    public function specificParentRules($id)
     {
         $parent_rules = Rule::all();
-        return $parent_rules->whereIn('parentrule_id',"");
+        return $parent_rules->whereIn('parentrule_id',"")->whereIn('eshop_id', [$id]);
+
     }
 
 

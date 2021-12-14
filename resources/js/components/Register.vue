@@ -50,7 +50,7 @@
             saveForm() {
                 let sprava = "";
                 axios.post('./api/register', this.form).then(() => {
-                    console.log('saved');
+                    this.$router.push({name: "login"});
                 }).catch((error) => {
                     this.errors = error.response.data.errors;
                     if (this.errors.name) {

@@ -19558,7 +19558,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.loadEshops();
     this.loadSubjects();
     this.loadPredicates();
-    this.loadParentrules();
   },
   methods: {
     loadPredicates: function loadPredicates() {
@@ -19587,16 +19586,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.carrier_services = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/eshops").then(function (response) {
         _this3.eshops = response.data;
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    loadParentrules: function loadParentrules() {
-      var _this4 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificParentrules").then(function (response) {
-        console.log(response.data);
-        _this4.parentrules = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -19652,7 +19641,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     submit: function submit() {
-      var _this5 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var ok;
@@ -19660,13 +19649,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (!_this5.inputTest()) {
+                if (!_this4.inputTest()) {
                   _context2.next = 5;
                   break;
                 }
 
                 _context2.next = 3;
-                return _this5.$refs.confirmDialogue.show({
+                return _this4.$refs.confirmDialogue.show({
                   title: 'Submit rule',
                   message: "Are you sure you want to submit a new rule?",
                   okButton: 'Submit rule'
@@ -19676,7 +19665,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 ok = _context2.sent;
 
                 if (ok) {
-                  axios__WEBPACK_IMPORTED_MODULE_1___default().post("./api/rulestore", _this5.fields).then( /*#__PURE__*/function () {
+                  axios__WEBPACK_IMPORTED_MODULE_1___default().post("./api/rulestore", _this4.fields).then( /*#__PURE__*/function () {
                     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(response) {
                       var ok;
                       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -19684,7 +19673,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           switch (_context.prev = _context.next) {
                             case 0:
                               _context.next = 2;
-                              return _this5.$refs.infoDialogue.show({
+                              return _this4.$refs.infoDialogue.show({
                                 title: 'Submit rule',
                                 message: "Rule successfully submitted!",
                                 okButton: 'Ok'
@@ -19721,25 +19710,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     loadCarriers: function loadCarriers(x) {
-      var _this6 = this;
+      var _this5 = this;
 
       this.carriers = "";
       this.fields.carrier_id = "";
       this.carrier_services = "";
       this.fields.carrier_service_id = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarriers/".concat(x)).then(function (response) {
-        _this6.carriers = response.data;
+        _this5.carriers = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
     loadCarrierServices: function loadCarrierServices(x) {
-      var _this7 = this;
+      var _this6 = this;
 
       this.carrier_services = "";
       this.fields.carrier_service_id = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarrierServices/".concat(x)).then(function (response) {
-        _this7.carrier_services = response.data;
+        _this6.carrier_services = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    loadParentrules: function loadParentrules(x) {
+      var _this7 = this;
+
+      this.parentrules = "";
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificParentrules/".concat(x)).then(function (response) {
+        console.log(response.data);
+        _this7.parentrules = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -20912,7 +20912,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var sprava = "";
       axios.post('./api/register', this.form).then(function () {
-        console.log('saved');
+        _this.$router.push({
+          name: "login"
+        });
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
 
@@ -21011,6 +21013,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
+    back: function back() {
+      this.$router.push({
+        name: "eshoplist"
+      });
+    },
     deleteRule: function deleteRule(id) {
       var _this3 = this;
 
@@ -21299,7 +21306,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.fields.eshop_id = $event;
     }),
     onChange: _cache[4] || (_cache[4] = function ($event) {
-      return $options.loadCarriers(_this.fields.eshop_id);
+      return $options.loadCarriers(_this.fields.eshop_id), $options.loadParentrules(_this.fields.eshop_id);
     })
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.eshops, function (eshop) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
@@ -21382,7 +21389,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.parentrules, function (parentrule) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
       value: parentrule.id
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parentrule.value), 9
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(parentrule.value + " " + $data.eshops[parentrule.eshop_id - 1].name), 9
     /* TEXT, PROPS */
     , _hoisted_27);
   }), 256
@@ -22423,15 +22430,15 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+var _hoisted_15 = {
+  scope: "col"
+};
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
 }, null, -1
 /* HOISTED */
 );
-
-var _hoisted_16 = {
-  scope: "col"
-};
 
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
@@ -22456,7 +22463,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_info_dialogue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("info-dialogue");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, _hoisted_10, _hoisted_11, _hoisted_12, _hoisted_13, _hoisted_14, _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [_hoisted_5, _hoisted_6, _hoisted_7, _hoisted_8, _hoisted_9, _hoisted_10, _hoisted_11, _hoisted_12, _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     placeholder: "Filter rows",
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -22464,7 +22471,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.filter]])]), _hoisted_17])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRows, function (rule) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.filter]])]), _hoisted_16, _hoisted_17])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRows, function (rule) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       value: rule.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.id), 1
@@ -22784,13 +22791,9 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_15 = {
   scope: "col"
 };
-
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+var _hoisted_16 = {
   scope: "col"
-}, null, -1
-/* HOISTED */
-);
-
+};
 var _hoisted_17 = ["value"];
 var _hoisted_18 = {
   key: 0,
@@ -22815,7 +22818,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.filter]])]), _hoisted_16])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRows, function (rule) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.filter]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "btn btn-primary",
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.back && $options.back.apply($options, arguments);
+    })
+  }, "Back")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($options.filteredRows, function (rule) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       value: rule.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(rule.id), 1

@@ -16,8 +16,8 @@
                     <th scope="col">Subject</th>
                     <th scope="col">Predicate</th>
                     <th scope="col">Status</th>
-                    <th scope="col"></th>
                     <th scope="col"><input type="text" placeholder="Filter rows"  v-model="filter" /></th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
                 </thead>

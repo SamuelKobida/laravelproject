@@ -31,7 +31,7 @@ Route::post('/resolve', [ResolveController::class,'resolve']);
 Route::get('/subjects', [DataController::class,'subjects']);
 Route::get('/predicates', [DataController::class,'predicates']);
 Route::get('/eshops', [DataController::class,'eshops']);
-Route::get('/specificParentrules', [DataController::class,'specificParentRules']);
+Route::get('/specificParentrules/{id}', [DataController::class,'specificParentRules']);
 Route::get('/specificCarriers/{id}', [DataController::class,'specificCarriers']);
 Route::get('/specificCarrierServices/{id}', [DataController::class,'specificCarrierServices']);
 
