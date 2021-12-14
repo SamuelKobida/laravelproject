@@ -45,8 +45,8 @@ class ResolveController extends Controller
                             // POZERAM NA VYSLEDOK FUNCKIE NACITANEHO PREDICATU
 
                             if ($compareResult) {
-                                $selectedRule['service v subcykle'] = $sub_rule->carrier_service->name;
-                                $selectedCourier['courier v subcykle'] = $carriers[$sub_rule->carrier_service->carrier_id]->name;
+                                $selectedRule['service'] = $sub_rule->carrier_service->name;
+                                $selectedCourier['courier'] = $carriers[$sub_rule->carrier_service->carrier_id]->name;
 
                                 //VRACIAM VYSLEDOK
                                 return response()->json($selectedCourier + $selectedRule);

@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label class="m-1">Parent rule</label>
                         <select class="form-control" v-model="fields.parentrule_id">
-                            <option v-for="parentrule in parentrules" :value="parentrule.id"> {{ parentrule.value }}
+                            <option v-for="parentrule in parentrules" :value="parentrule.id"> {{ parentrule.value + " "+ eshops[parentrule.eshop_id-1].name}}
                             </option>
                         </select>
                     </div>

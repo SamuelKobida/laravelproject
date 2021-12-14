@@ -18,7 +18,7 @@
                     <th scope="col">Parent rule</th>
                     <th scope="col">Status</th>
                     <th scope="col"><input type="text" placeholder="Filter rows"  v-model="filter" /></th>
-                    <th scope="col"></th>
+                    <th scope="col"><button class="btn btn-primary" @click="back">Back</button></th>
                 </tr>
                 </thead>
 
@@ -105,6 +105,9 @@
             }
         },
         methods: {
+            back(){
+                this.$router.push({name: "eshoplist"});
+            },
             async deleteRule(id) {
                 const ok = await this.$refs.confirmDialogue.show({
                     title: 'Delete rule',
