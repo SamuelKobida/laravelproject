@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label class="m-1">eShop</label>
                         <select class="form-control" v-model="fields.eshop_id"
-                                @change="loadCarriers(this.fields.eshop_id)">
+                                @change="loadCarriers(this.fields.eshop_id), loadParentrules(this.fields.eshop_id)">
                             <option v-for="eshop in eshops" :value="eshop.id"> {{ eshop.name }}</option>
                         </select>
                     </div>
@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label class="m-1">Parent rule</label>
                         <select class="form-control" v-model="fields.parentrule_id">
-                            <option v-for="parentrule in parentrules" :value="parentrule.id"> {{ parentrule.value }}
+                            <option v-for="parentrule in parentrules" :value="parentrule.id"> {{ parentrule.value + " "+ eshops[parentrule.eshop_id-1].name}}
                             </option>
                         </select>
                     </div>
@@ -118,7 +118,6 @@
             this.loadEshops();
             this.loadSubjects();
             this.loadPredicates();
-            this.loadParentrules();
         },
 
         methods: {
@@ -150,14 +149,7 @@
                 });
             },
 
-            loadParentrules: function () {
-                axios.get("http://localhost/laravelproject/public/api/specificParentrules").then(response => {
-                    console.log(response.data);
-                    this.parentrules = response.data;
-                }).catch(function (error) {
-                    console.log(error);
-                });
-            },
+
 
             inputTest() {
                 let sprava = ""
@@ -245,7 +237,17 @@
                 }).catch(function (error) {
                     console.log(error);
                 });
+            },
+            loadParentrules: function (x) {
+                this.parentrules=""
+                axios.get(`http://localhost/laravelproject/public/api/specificParentrules/${x}`).then(response => {
+                    console.log(response.data);
+                    this.parentrules = response.data;
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }
+
         }
     }
 </script>
