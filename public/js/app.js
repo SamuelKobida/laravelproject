@@ -19558,7 +19558,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.loadEshops();
     this.loadSubjects();
     this.loadPredicates();
-    this.loadParentrules();
   },
   methods: {
     loadPredicates: function loadPredicates() {
@@ -19587,16 +19586,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.carrier_services = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/eshops").then(function (response) {
         _this3.eshops = response.data;
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
-    loadParentrules: function loadParentrules() {
-      var _this4 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificParentrules").then(function (response) {
-        console.log(response.data);
-        _this4.parentrules = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -19652,7 +19641,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     submit: function submit() {
-      var _this5 = this;
+      var _this4 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
         var ok;
@@ -19660,13 +19649,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (!_this5.inputTest()) {
+                if (!_this4.inputTest()) {
                   _context2.next = 5;
                   break;
                 }
 
                 _context2.next = 3;
-                return _this5.$refs.confirmDialogue.show({
+                return _this4.$refs.confirmDialogue.show({
                   title: 'Submit rule',
                   message: "Are you sure you want to submit a new rule?",
                   okButton: 'Submit rule'
@@ -19676,7 +19665,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 ok = _context2.sent;
 
                 if (ok) {
-                  axios__WEBPACK_IMPORTED_MODULE_1___default().post("./api/rulestore", _this5.fields).then( /*#__PURE__*/function () {
+                  axios__WEBPACK_IMPORTED_MODULE_1___default().post("./api/rulestore", _this4.fields).then( /*#__PURE__*/function () {
                     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(response) {
                       var ok;
                       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -19684,7 +19673,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           switch (_context.prev = _context.next) {
                             case 0:
                               _context.next = 2;
-                              return _this5.$refs.infoDialogue.show({
+                              return _this4.$refs.infoDialogue.show({
                                 title: 'Submit rule',
                                 message: "Rule successfully submitted!",
                                 okButton: 'Ok'
@@ -19721,25 +19710,36 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     loadCarriers: function loadCarriers(x) {
-      var _this6 = this;
+      var _this5 = this;
 
       this.carriers = "";
       this.fields.carrier_id = "";
       this.carrier_services = "";
       this.fields.carrier_service_id = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarriers/".concat(x)).then(function (response) {
-        _this6.carriers = response.data;
+        _this5.carriers = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
     },
     loadCarrierServices: function loadCarrierServices(x) {
-      var _this7 = this;
+      var _this6 = this;
 
       this.carrier_services = "";
       this.fields.carrier_service_id = "";
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificCarrierServices/".concat(x)).then(function (response) {
-        _this7.carrier_services = response.data;
+        _this6.carrier_services = response.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    loadParentrules: function loadParentrules(x) {
+      var _this7 = this;
+
+      this.parentrules = "";
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost/laravelproject/public/api/specificParentrules/".concat(x)).then(function (response) {
+        console.log(response.data);
+        _this7.parentrules = response.data;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -21306,7 +21306,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.fields.eshop_id = $event;
     }),
     onChange: _cache[4] || (_cache[4] = function ($event) {
-      return $options.loadCarriers(_this.fields.eshop_id);
+      return $options.loadCarriers(_this.fields.eshop_id), $options.loadParentrules(_this.fields.eshop_id);
     })
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.eshops, function (eshop) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
