@@ -20,10 +20,10 @@ class ResolveController extends Controller
         $selectedRule = [];
         $selectedCourier = [];
 
-        $rules = Rule::orderBy('priority')->get();
+
+        $rules = Rule::all()->whereIn('isActive',"1")->sortBy('priority');
 
         foreach ($rules as $rule) {
-            if (($rule->isActive) > 0) {
                 //POZERA IBA TIE RULES PRE ESHOPY KTORE SU V JSONE
                 if ($eshops[$rule->eshop_id - 1]->name == ($order['eshop'])) {
                     //V PRIPADE ZE SA JEDNA O MATERSKU RULE VCHADZA DO JEJ SUBRULES
@@ -70,7 +70,7 @@ class ResolveController extends Controller
                         }
 
                 }
-            }
+
         }
         return response()->json("Nenašla sa vhodná kuriérska služba");
 
